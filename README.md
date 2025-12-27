@@ -1,5 +1,5 @@
-# Brelinx Connect - Client Portal
 
+<<<<<<< HEAD
 A modern, responsive client portal built with vanilla JavaScript, HTML, and CSS.
 
 ## 🚀 Live Demo
@@ -151,3 +151,5 @@ This project is licensed under the MIT License.
 ---
 
 **Note**: This is a client-side only application. For production use, you'll need to implement proper backend authentication and API endpoints.
+=======
+>>>>>>> 565ab165299ce4e09f483d43bb50b08830a4dd00

@@ -1,62 +1,90 @@
 /**
- * Loader Component
+ * Brelinx Connect - Loader Component
+ * Loading indicators and spinners
  */
+
 class Loader {
   constructor() {
-    this.loader = null;
+    this.activeLoaders = new Set();
   }
 
   /**
-   * Show loader
-   * @param {string} message 
+   * Show loading spinner
    */
-  show(message = 'Loading...') {
-    if (this.loader) {
-      this.hide();
+  show(target = 'body', options = {}) {
+    const config = {
+      size: 'medium',
+      color: 'primary',
+      overlay: true,
+      text: '',
+      ...options
+    };
+
+    const loaderId = this.generateId();
+    const loader = this.createLoader(loaderId, config);
+    
+    const targetElement = typeof target === 'string' ? document.querySelector(target) : target;
+    if (targetElement) {
+      targetElement.appendChild(loader);
+      this.activeLoaders.add(loaderId);
     }
 
-    this.loader = document.createElement('div');
-    this.loader.className = 'loader-overlay';
-    this.loader.innerHTML = `
+    return loaderId;
+  }
+
+  /**
+   * Hide loading spinner
+   */
+  hide(loaderId) {
+    const loader = document.getElementById(loaderId);
+    if (loader) {
+      loader.remove();
+      this.activeLoaders.delete(loaderId);
+    }
+  }
+
+  /**
+   * Hide all loaders
+   */
+  hideAll() {
+    this.activeLoaders.forEach(id => this.hide(id));
+  }
+
+  /**
+   * Create loader element
+   */
+  createLoader(id, config) {
+    const loader = document.createElement('div');
+    loader.id = id;
+    loader.className = `loader-container ${config.overlay ? 'loader-overlay' : ''}`;
+    
+    loader.innerHTML = `
       <div class="loader-content">
-        <ion-spinner name="crescent" color="primary"></ion-spinner>
-        ${message ? `<p class="loader-message">${message}</p>` : ''}
+        <div class="loader-spinner loader-${config.size} loader-${config.color}"></div>
+        ${config.text ? `<div class="loader-text">${config.text}</div>` : ''}
       </div>
     `;
 
-    document.body.appendChild(this.loader);
-    
-    // Trigger animation
-    setTimeout(() => {
-      this.loader.classList.add('show');
-    }, 10);
+    return loader;
   }
 
   /**
-   * Hide loader
+   * Generate unique ID
    */
-  hide() {
-    if (this.loader) {
-      this.loader.classList.remove('show');
-      setTimeout(() => {
-        if (this.loader && this.loader.parentNode) {
-          this.loader.parentNode.removeChild(this.loader);
-        }
-        this.loader = null;
-      }, 300);
-    }
+  generateId() {
+    return `loader_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
   }
 }
 
-// Create singleton instance
-const loader = new Loader();
+// Add CSS styles
+const loaderStyles = `
+  .loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
 
-// Make globally available
-window.loader = loader;
-
-// Add loader styles
-const style = document.createElement('style');
-style.textContent = `
   .loader-overlay {
     position: fixed;
     top: 0;
@@ -64,34 +92,71 @@ style.textContent = `
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: var(--z-modal);
-    opacity: 0;
-    transition: opacity var(--transition-base);
-  }
-
-  .loader-overlay.show {
-    opacity: 1;
+    backdrop-filter: blur(2px);
   }
 
   .loader-content {
-    background: var(--color-white);
-    border-radius: var(--border-radius-lg);
-    padding: var(--spacing-xl);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-md);
-    box-shadow: var(--shadow-xl);
+    gap: 12px;
   }
 
-  .loader-message {
-    margin: 0;
-    color: var(--ion-text-color);
-    font-size: var(--font-size-base);
+  .loader-spinner {
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: var(--primary);
+    animation: spin 1s linear infinite;
+  }
+
+  .loader-small {
+    width: 16px;
+    height: 16px;
+  }
+
+  .loader-medium {
+    width: 24px;
+    height: 24px;
+  }
+
+  .loader-large {
+    width: 32px;
+    height: 32px;
+  }
+
+  .loader-primary {
+    border-top-color: var(--primary);
+  }
+
+  .loader-white {
+    border-color: rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+  }
+
+  .loader-text {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
 `;
-document.head.appendChild(style);
 
+// Inject styles
+if (!document.getElementById('loader-styles')) {
+  const style = document.createElement('style');
+  style.id = 'loader-styles';
+  style.textContent = loaderStyles;
+  document.head.appendChild(style);
+}
+
+// Create global instance
+window.Loader = Loader;
+
+// Export for module systems
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = Loader;
+}

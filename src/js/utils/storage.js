@@ -1,126 +1,140 @@
 /**
- * Storage Utility
- * Handles localStorage and sessionStorage operations
+ * Brelinx Connect - Storage Utilities
+ * LocalStorage and SessionStorage helpers
  */
-class Storage {
+
+class StorageService {
+  constructor() {
+    this.prefix = 'brelinx_';
+  }
+
   /**
    * Set item in localStorage
-   * @param {string} key 
-   * @param {any} value 
    */
-  static set(key, value) {
+  setLocal(key, value) {
     try {
-      const serialized = JSON.stringify(value);
-      localStorage.setItem(key, serialized);
+      const serializedValue = JSON.stringify(value);
+      localStorage.setItem(this.prefix + key, serializedValue);
       return true;
     } catch (error) {
-      console.error('Storage.set error:', error);
+      console.error('Error setting localStorage item:', error);
       return false;
     }
   }
 
   /**
    * Get item from localStorage
-   * @param {string} key 
-   * @param {any} defaultValue 
-   * @returns {any}
    */
-  static get(key, defaultValue = null) {
+  getLocal(key, defaultValue = null) {
     try {
-      const item = localStorage.getItem(key);
-      if (item === null) return defaultValue;
-      return JSON.parse(item);
+      const item = localStorage.getItem(this.prefix + key);
+      return item ? JSON.parse(item) : defaultValue;
     } catch (error) {
-      console.error('Storage.get error:', error);
+      console.error('Error getting localStorage item:', error);
       return defaultValue;
     }
   }
 
   /**
    * Remove item from localStorage
-   * @param {string} key 
    */
-  static remove(key) {
+  removeLocal(key) {
     try {
-      localStorage.removeItem(key);
+      localStorage.removeItem(this.prefix + key);
       return true;
     } catch (error) {
-      console.error('Storage.remove error:', error);
-      return false;
-    }
-  }
-
-  /**
-   * Clear all localStorage
-   */
-  static clear() {
-    try {
-      localStorage.clear();
-      return true;
-    } catch (error) {
-      console.error('Storage.clear error:', error);
+      console.error('Error removing localStorage item:', error);
       return false;
     }
   }
 
   /**
    * Set item in sessionStorage
-   * @param {string} key 
-   * @param {any} value 
    */
-  static setSession(key, value) {
+  setSession(key, value) {
     try {
-      const serialized = JSON.stringify(value);
-      sessionStorage.setItem(key, serialized);
+      const serializedValue = JSON.stringify(value);
+      sessionStorage.setItem(this.prefix + key, serializedValue);
       return true;
     } catch (error) {
-      console.error('Storage.setSession error:', error);
+      console.error('Error setting sessionStorage item:', error);
       return false;
     }
   }
 
   /**
    * Get item from sessionStorage
-   * @param {string} key 
-   * @param {any} defaultValue 
-   * @returns {any}
    */
-  static getSession(key, defaultValue = null) {
+  getSession(key, defaultValue = null) {
     try {
-      const item = sessionStorage.getItem(key);
-      if (item === null) return defaultValue;
-      return JSON.parse(item);
+      const item = sessionStorage.getItem(this.prefix + key);
+      return item ? JSON.parse(item) : defaultValue;
     } catch (error) {
-      console.error('Storage.getSession error:', error);
+      console.error('Error getting sessionStorage item:', error);
       return defaultValue;
     }
   }
 
   /**
    * Remove item from sessionStorage
-   * @param {string} key 
    */
-  static removeSession(key) {
+  removeSession(key) {
     try {
-      sessionStorage.removeItem(key);
+      sessionStorage.removeItem(this.prefix + key);
       return true;
     } catch (error) {
-      console.error('Storage.removeSession error:', error);
+      console.error('Error removing sessionStorage item:', error);
       return false;
     }
   }
 
   /**
-   * Clear all sessionStorage
+   * Clear all app data
    */
-  static clearSession() {
+  clearAll() {
     try {
-      sessionStorage.clear();
+      // Clear localStorage items with our prefix
+      Object.keys(localStorage).forEach(key => {
+        if (key.startsWith(this.prefix)) {
+          localStorage.removeItem(key);
+        }
+      });
+
+      // Clear sessionStorage items with our prefix
+      Object.keys(sessionStorage).forEach(key => {
+        if (key.startsWith(this.prefix)) {
+          sessionStorage.removeItem(key);
+        }
+      });
+
       return true;
     } catch (error) {
-      console.error('Storage.clearSession error:', error);
+      console.error('Error clearing storage:', error);
+      return false;
+    }
+  }
+
+  /**
+   * Check if storage is available
+   */
+  isStorageAvailable(type = 'localStorage') {
+    try {
+      const storage = window[type];
+      const test = '__storage_test__';
+      storage.setItem(test, test);
+      storage.removeItem(test);
+      return true;
+    } catch (error) {
       return false;
     }
   }
 }
 
+// Create global instance
+window.StorageService = StorageService;
+window.storageService = new StorageService();
+
+// Export for module systems
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = StorageService;
+}

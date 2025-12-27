@@ -222,6 +222,27 @@ class Router {
    * Handle initial route on page load
    */
   handleInitialRoute() {
+    // Check if we're accessing a page directly (not through index.html)
+    if (window.location.pathname.includes('/pages/')) {
+      // Redirect to main app with the appropriate hash
+      const currentPath = window.location.pathname;
+      let redirectHash = '/';
+      
+      if (currentPath.includes('login.html')) {
+        redirectHash = '/auth/login';
+      } else if (currentPath.includes('register.html')) {
+        redirectHash = '/auth/register';
+      } else if (currentPath.includes('reset-password.html')) {
+        redirectHash = '/auth/reset-password';
+      }
+      
+      // Get the base URL (remove everything after /src/)
+      const baseUrl = window.location.origin + window.location.pathname.split('/src/')[0] + '/src/';
+      window.location.href = baseUrl + 'index.html#' + redirectHash;
+      return;
+    }
+
+    // Normal hash-based routing
     const hash = window.location.hash.substring(1) || '/';
     this.navigate(hash, false);
   }

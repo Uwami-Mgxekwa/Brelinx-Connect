@@ -1,161 +1,159 @@
 /**
- * Authentication Service
+ * Brelinx Connect - Authentication Service
+ * Handles user authentication and session management
  */
+
 class AuthService {
   constructor() {
-    this.api = apiService;
+    this.currentUser = null;
+    this.authToken = null;
+    this.refreshToken = null;
+    
+    this.loadStoredAuth();
   }
 
   /**
-   * Login user
-   * @param {string} email 
-   * @param {string} password 
-   * @param {boolean} remember 
-   * @returns {Promise<object>}
+   * Load stored authentication data
    */
-  async login(email, password, remember = false) {
-    try {
-      const response = await this.api.post('/api/auth/login', {
-        email,
-        password
-      });
-
-      if (response.token) {
-        this.api.setToken(response.token);
-        Storage.set('user', response.user);
-        
-        if (response.refreshToken) {
-          Storage.set('refreshToken', response.refreshToken);
-        }
-
-        return {
-          success: true,
-          user: response.user,
-          token: response.token
-        };
+  loadStoredAuth() {
+    this.authToken = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
+    this.refreshToken = localStorage.getItem('refreshToken');
+    
+    const userData = localStorage.getItem('userData');
+    if (userData) {
+      try {
+        this.currentUser = JSON.parse(userData);
+      } catch (error) {
+        console.error('Error parsing stored user data:', error);
+        this.clearAuth();
       }
-
-      throw new Error('Invalid response from server');
-    } catch (error) {
-      console.error('Login error:', error);
-      return {
-        success: false,
-        error: error.message || 'Login failed. Please check your credentials.'
-      };
-    }
-  }
-
-  /**
-   * Register user
-   * @param {object} userData 
-   * @returns {Promise<object>}
-   */
-  async register(userData) {
-    try {
-      const response = await this.api.post('/api/auth/register', userData);
-
-      if (response.token) {
-        this.api.setToken(response.token);
-        Storage.set('user', response.user);
-        
-        if (response.refreshToken) {
-          Storage.set('refreshToken', response.refreshToken);
-        }
-
-        return {
-          success: true,
-          user: response.user,
-          token: response.token
-        };
-      }
-
-      throw new Error('Invalid response from server');
-    } catch (error) {
-      console.error('Register error:', error);
-      return {
-        success: false,
-        error: error.message || 'Registration failed. Please try again.'
-      };
-    }
-  }
-
-  /**
-   * Logout user
-   * @returns {Promise<void>}
-   */
-  async logout() {
-    try {
-      await this.api.post('/api/auth/logout');
-    } catch (error) {
-      console.error('Logout error:', error);
-    } finally {
-      this.api.setToken(null);
-      Storage.remove('authToken');
-      Storage.remove('refreshToken');
-      Storage.remove('user');
-    }
-  }
-
-  /**
-   * Reset password
-   * @param {string} email 
-   * @returns {Promise<object>}
-   */
-  async resetPassword(email) {
-    try {
-      const response = await this.api.post('/api/auth/reset-password', { email });
-      return {
-        success: true,
-        message: response.message || 'Password reset email sent'
-      };
-    } catch (error) {
-      console.error('Reset password error:', error);
-      return {
-        success: false,
-        error: error.message || 'Failed to send reset email'
-      };
     }
   }
 
   /**
    * Check if user is authenticated
-   * @returns {boolean}
    */
   isAuthenticated() {
-    const token = this.api.getToken();
-    const user = Storage.get('user');
-    return !!(token && user);
+    return !!this.authToken && !!this.currentUser;
   }
 
   /**
    * Get current user
-   * @returns {object|null}
    */
   getCurrentUser() {
-    return Storage.get('user');
+    return this.currentUser;
   }
 
   /**
-   * Refresh authentication token
-   * @returns {Promise<boolean>}
+   * Get auth token
    */
-  async refreshToken() {
+  getAuthToken() {
+    return this.authToken;
+  }
+
+  /**
+   * Login user
+   */
+  async login(credentials) {
     try {
-      const refreshToken = Storage.get('refreshToken');
-      if (!refreshToken) {
-        throw new Error('No refresh token available');
+      // Use API service for login
+      const response = await window.apiService.login(credentials);
+      
+      if (response.data.success) {
+        this.setAuthData(response.data, credentials.remember);
+        return { success: true, user: this.currentUser };
+      } else {
+        return { success: false, message: response.data.message };
       }
+    } catch (error) {
+      console.error('Login error:', error);
+      return { success: false, message: 'Login failed. Please try again.' };
+    }
+  }
 
-      const response = await this.api.post('/api/auth/refresh-token', {
-        refreshToken
-      });
-
-      if (response.token) {
-        this.api.setToken(response.token);
-        return true;
+  /**
+   * Register user
+   */
+  async register(userData) {
+    try {
+      // Use API service for registration
+      const response = await window.apiService.register(userData);
+      
+      if (response.data.success) {
+        return { success: true, user: response.data.user };
+      } else {
+        return { success: false, message: response.data.message };
       }
+    } catch (error) {
+      console.error('Registration error:', error);
+      return { success: false, message: 'Registration failed. Please try again.' };
+    }
+  }
 
+  /**
+   * Reset password
+   */
+  async resetPassword(email) {
+    try {
+      // Use API service for password reset
+      const response = await window.apiService.resetPassword(email);
+      
+      if (response.data.success) {
+        return { success: true };
+      } else {
+        return { success: false, message: response.data.message };
+      }
+    } catch (error) {
+      console.error('Reset password error:', error);
+      return { success: false, message: 'Failed to send reset email. Please try again.' };
+    }
+  }
+
+  /**
+   * Logout user
+   */
+  async logout() {
+    try {
+      // Call logout API if token exists
+      if (this.authToken) {
+        await window.apiService.logout();
+      }
+    } catch (error) {
+      console.error('Logout API error:', error);
+    } finally {
+      this.clearAuth();
+      this.notifyAuthChange(false);
+    }
+  }
+
+  /**
+   * Refresh auth token
+   */
+  async refreshAuthToken() {
+    if (!this.refreshToken) {
+      this.logout();
       return false;
+    }
+
+    try {
+      const response = await window.apiService.refreshAuthToken(this.refreshToken);
+      
+      if (response.data.success) {
+        this.authToken = response.data.token;
+        this.refreshToken = response.data.refreshToken;
+        
+        // Update stored tokens
+        const storage = localStorage.getItem('authToken') ? localStorage : sessionStorage;
+        storage.setItem('authToken', this.authToken);
+        if (this.refreshToken) {
+          localStorage.setItem('refreshToken', this.refreshToken);
+        }
+        
+        return true;
+      } else {
+        this.logout();
+        return false;
+      }
     } catch (error) {
       console.error('Token refresh error:', error);
       this.logout();
@@ -164,24 +162,121 @@ class AuthService {
   }
 
   /**
-   * Check biometric availability
-   * @returns {Promise<boolean>}
+   * Set authentication data
    */
-  async checkBiometric() {
-    // This will be implemented with Capacitor Biometric plugin
-    return false;
+  setAuthData(authData, remember = false) {
+    this.authToken = authData.token;
+    this.refreshToken = authData.refreshToken;
+    this.currentUser = authData.user;
+
+    // Store tokens
+    const storage = remember ? localStorage : sessionStorage;
+    storage.setItem('authToken', this.authToken);
+    
+    if (this.refreshToken) {
+      localStorage.setItem('refreshToken', this.refreshToken);
+    }
+
+    // Store user data
+    localStorage.setItem('userData', JSON.stringify(this.currentUser));
+
+    // Notify auth change
+    this.notifyAuthChange(true);
   }
 
   /**
-   * Authenticate with biometric
-   * @returns {Promise<object>}
+   * Clear authentication data
    */
-  async authenticateBiometric() {
-    // This will be implemented with Capacitor Biometric plugin
-    throw new Error('Biometric authentication not implemented');
+  clearAuth() {
+    this.authToken = null;
+    this.refreshToken = null;
+    this.currentUser = null;
+
+    // Clear stored data
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('refreshToken');
+    localStorage.removeItem('userData');
+    sessionStorage.removeItem('authToken');
+  }
+
+  /**
+   * Notify authentication state change
+   */
+  notifyAuthChange(isAuthenticated) {
+    window.dispatchEvent(new CustomEvent('authChanged', {
+      detail: {
+        isAuthenticated,
+        user: this.currentUser
+      }
+    }));
+  }
+
+  /**
+   * Check if token is expired
+   */
+  isTokenExpired() {
+    if (!this.authToken) return true;
+
+    try {
+      // Decode JWT token (basic check)
+      const payload = JSON.parse(atob(this.authToken.split('.')[1]));
+      const currentTime = Date.now() / 1000;
+      
+      return payload.exp < currentTime;
+    } catch (error) {
+      console.error('Error checking token expiration:', error);
+      return true;
+    }
+  }
+
+  /**
+   * Auto-refresh token if needed
+   */
+  async ensureValidToken() {
+    if (this.isTokenExpired()) {
+      return await this.refreshAuthToken();
+    }
+    return true;
+  }
+
+  /**
+   * Update user profile
+   */
+  updateUserProfile(userData) {
+    if (this.currentUser) {
+      this.currentUser = { ...this.currentUser, ...userData };
+      localStorage.setItem('userData', JSON.stringify(this.currentUser));
+      
+      this.notifyAuthChange(true);
+    }
+  }
+
+  /**
+   * Check user permissions
+   */
+  hasPermission(permission) {
+    if (!this.currentUser) return false;
+    
+    // Basic role-based permissions
+    const userRole = this.currentUser.role;
+    
+    const permissions = {
+      admin: ['*'], // Admin has all permissions
+      client: ['view_projects', 'upload_files', 'send_messages', 'make_payments'],
+      viewer: ['view_projects']
+    };
+
+    const userPermissions = permissions[userRole] || [];
+    
+    return userPermissions.includes('*') || userPermissions.includes(permission);
   }
 }
 
-// Create singleton instance
-const authService = new AuthService();
+// Create global instance
+window.AuthService = AuthService;
+window.authService = new AuthService();
 
+// Export for module systems
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = AuthService;
+}

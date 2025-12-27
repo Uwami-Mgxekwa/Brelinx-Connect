@@ -1,187 +1,232 @@
 /**
- * Validation Utility
+ * Brelinx Connect - Validation Utilities
+ * Form validation helpers
  */
-class Validation {
+
+class ValidationService {
+  constructor() {
+    this.rules = {};
+  }
+
   /**
-   * Validate email
-   * @param {string} email 
-   * @returns {boolean}
+   * Validate email format
    */
-  static isValidEmail(email) {
+  validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    return {
+      isValid: emailRegex.test(email),
+      message: 'Please enter a valid email address'
+    };
   }
 
   /**
    * Validate password strength
-   * @param {string} password 
-   * @returns {object}
    */
-  static validatePassword(password) {
-    const result = {
-      valid: true,
-      errors: []
+  validatePassword(password, requirements = {}) {
+    const defaultRequirements = {
+      minLength: 8,
+      requireUppercase: true,
+      requireLowercase: true,
+      requireNumbers: true,
+      requireSpecialChars: false
     };
 
-    if (password.length < 8) {
-      result.valid = false;
-      result.errors.push('Password must be at least 8 characters');
+    const reqs = { ...defaultRequirements, ...requirements };
+    const errors = [];
+
+    if (password.length < reqs.minLength) {
+      errors.push(`Password must be at least ${reqs.minLength} characters long`);
     }
 
-    if (!/[A-Z]/.test(password)) {
-      result.valid = false;
-      result.errors.push('Password must contain at least one uppercase letter');
+    if (reqs.requireUppercase && !/[A-Z]/.test(password)) {
+      errors.push('Password must contain at least one uppercase letter');
     }
 
-    if (!/[a-z]/.test(password)) {
-      result.valid = false;
-      result.errors.push('Password must contain at least one lowercase letter');
+    if (reqs.requireLowercase && !/[a-z]/.test(password)) {
+      errors.push('Password must contain at least one lowercase letter');
     }
 
-    if (!/[0-9]/.test(password)) {
-      result.valid = false;
-      result.errors.push('Password must contain at least one number');
+    if (reqs.requireNumbers && !/\d/.test(password)) {
+      errors.push('Password must contain at least one number');
     }
 
-    return result;
+    if (reqs.requireSpecialChars && !/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      errors.push('Password must contain at least one special character');
+    }
+
+    return {
+      isValid: errors.length === 0,
+      message: errors.join('. '),
+      errors
+    };
   }
 
   /**
    * Validate phone number
-   * @param {string} phone 
-   * @returns {boolean}
    */
-  static isValidPhone(phone) {
-    const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-    return phoneRegex.test(phone);
+  validatePhone(phone) {
+    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+    const cleanPhone = phone.replace(/\s/g, '');
+    
+    return {
+      isValid: phoneRegex.test(cleanPhone),
+      message: 'Please enter a valid phone number'
+    };
   }
 
   /**
-   * Validate URL
-   * @param {string} url 
-   * @returns {boolean}
+   * Validate required field
    */
-  static isValidUrl(url) {
+  validateRequired(value, fieldName = 'Field') {
+    const isValid = value !== null && value !== undefined && value.toString().trim() !== '';
+    
+    return {
+      isValid,
+      message: `${fieldName} is required`
+    };
+  }
+
+  /**
+   * Validate minimum length
+   */
+  validateMinLength(value, minLength, fieldName = 'Field') {
+    const isValid = value && value.length >= minLength;
+    
+    return {
+      isValid,
+      message: `${fieldName} must be at least ${minLength} characters long`
+    };
+  }
+
+  /**
+   * Validate maximum length
+   */
+  validateMaxLength(value, maxLength, fieldName = 'Field') {
+    const isValid = !value || value.length <= maxLength;
+    
+    return {
+      isValid,
+      message: `${fieldName} must be no more than ${maxLength} characters long`
+    };
+  }
+
+  /**
+   * Validate URL format
+   */
+  validateUrl(url) {
     try {
       new URL(url);
-      return true;
+      return {
+        isValid: true,
+        message: ''
+      };
     } catch {
-      return false;
+      return {
+        isValid: false,
+        message: 'Please enter a valid URL'
+      };
     }
   }
 
   /**
-   * Validate form
-   * @param {HTMLFormElement} form 
-   * @returns {object}
+   * Validate date format
    */
-  static validateForm(form) {
-    const result = {
-      valid: true,
-      errors: {}
-    };
-
-    const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+  validateDate(dateString) {
+    const date = new Date(dateString);
+    const isValid = !isNaN(date.getTime());
     
-    inputs.forEach(input => {
-      const value = input.value.trim();
-      const name = input.name || input.id;
-
-      // Check if required field is empty
-      if (input.hasAttribute('required') && !value) {
-        result.valid = false;
-        result.errors[name] = 'This field is required';
-        return;
-      }
-
-      // Validate email
-      if (input.type === 'email' && value && !this.isValidEmail(value)) {
-        result.valid = false;
-        result.errors[name] = 'Please enter a valid email address';
-        return;
-      }
-
-      // Validate password
-      if (input.type === 'password' && value && input.name === 'password') {
-        const passwordValidation = this.validatePassword(value);
-        if (!passwordValidation.valid) {
-          result.valid = false;
-          result.errors[name] = passwordValidation.errors[0];
-          return;
-        }
-      }
-
-      // Validate password match
-      if (input.name === 'confirmPassword' && value) {
-        const passwordInput = form.querySelector('input[name="password"]');
-        if (passwordInput && value !== passwordInput.value) {
-          result.valid = false;
-          result.errors[name] = 'Passwords do not match';
-          return;
-        }
-      }
-
-      // Validate min length
-      if (input.hasAttribute('minlength')) {
-        const minLength = parseInt(input.getAttribute('minlength'));
-        if (value.length < minLength) {
-          result.valid = false;
-          result.errors[name] = `Must be at least ${minLength} characters`;
-          return;
-        }
-      }
-
-      // Validate max length
-      if (input.hasAttribute('maxlength')) {
-        const maxLength = parseInt(input.getAttribute('maxlength'));
-        if (value.length > maxLength) {
-          result.valid = false;
-          result.errors[name] = `Must be no more than ${maxLength} characters`;
-          return;
-        }
-      }
-    });
-
-    return result;
+    return {
+      isValid,
+      message: 'Please enter a valid date'
+    };
   }
 
   /**
-   * Show form errors
-   * @param {HTMLFormElement} form 
-   * @param {object} errors 
+   * Validate number range
    */
-  static showFormErrors(form, errors) {
-    // Remove existing errors
-    form.querySelectorAll('.form-error').forEach(error => error.remove());
-    form.querySelectorAll('.form-group.error').forEach(group => {
-      group.classList.remove('error');
-    });
-
-    // Add new errors
-    Object.keys(errors).forEach(fieldName => {
-      const input = form.querySelector(`[name="${fieldName}"], #${fieldName}`);
-      if (input) {
-        const formGroup = input.closest('.form-group');
-        if (formGroup) {
-          formGroup.classList.add('error');
-          const errorElement = document.createElement('span');
-          errorElement.className = 'form-error';
-          errorElement.textContent = errors[fieldName];
-          formGroup.appendChild(errorElement);
-        }
-      }
-    });
+  validateNumberRange(value, min, max, fieldName = 'Value') {
+    const num = parseFloat(value);
+    const isValid = !isNaN(num) && num >= min && num <= max;
+    
+    return {
+      isValid,
+      message: `${fieldName} must be between ${min} and ${max}`
+    };
   }
 
   /**
-   * Clear form errors
-   * @param {HTMLFormElement} form 
+   * Validate form using rules
    */
-  static clearFormErrors(form) {
-    form.querySelectorAll('.form-error').forEach(error => error.remove());
-    form.querySelectorAll('.form-group.error').forEach(group => {
-      group.classList.remove('error');
+  validateForm(formData, rules) {
+    const errors = {};
+    let isValid = true;
+
+    Object.keys(rules).forEach(fieldName => {
+      const fieldRules = rules[fieldName];
+      const fieldValue = formData[fieldName];
+      
+      for (const rule of fieldRules) {
+        const result = this.applyRule(fieldValue, rule, fieldName);
+        if (!result.isValid) {
+          errors[fieldName] = result.message;
+          isValid = false;
+          break; // Stop at first error for this field
+        }
+      }
     });
+
+    return {
+      isValid,
+      errors
+    };
+  }
+
+  /**
+   * Apply validation rule
+   */
+  applyRule(value, rule, fieldName) {
+    switch (rule.type) {
+      case 'required':
+        return this.validateRequired(value, fieldName);
+      
+      case 'email':
+        return this.validateEmail(value);
+      
+      case 'password':
+        return this.validatePassword(value, rule.requirements);
+      
+      case 'phone':
+        return this.validatePhone(value);
+      
+      case 'minLength':
+        return this.validateMinLength(value, rule.value, fieldName);
+      
+      case 'maxLength':
+        return this.validateMaxLength(value, rule.value, fieldName);
+      
+      case 'url':
+        return this.validateUrl(value);
+      
+      case 'date':
+        return this.validateDate(value);
+      
+      case 'numberRange':
+        return this.validateNumberRange(value, rule.min, rule.max, fieldName);
+      
+      case 'custom':
+        return rule.validator(value, fieldName);
+      
+      default:
+        return { isValid: true, message: '' };
+    }
   }
 }
 
+// Create global instance
+window.ValidationService = ValidationService;
+window.validationService = new ValidationService();
+
+// Export for module systems
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = ValidationService;
+}

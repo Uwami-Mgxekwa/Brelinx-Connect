@@ -1,0 +1,30 @@
+{
+  "name": "Brelinx Connect",
+  "short_name": "Brelinx",
+  "description": "Brelinx Connect - Client Portal",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2d8a5f",
+  "theme_color": "#2d8a5f",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "assets/images/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "description": "View your dashboard",
+      "url": "/dashboard",
+      "icons": [{ "src": "assets/images/logo.svg", "sizes": "96x96" }]
+    }
+  ]
+}
+

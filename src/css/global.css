@@ -18,6 +18,8 @@ html {
   -moz-osx-font-smoothing: grayscale;
   overflow-y: auto; /* Ensure vertical scrolling is enabled */
   height: 100%; /* Allow full height */
+  /* iOS Safari viewport fix */
+  height: -webkit-fill-available;
 }
 
 body {
@@ -30,6 +32,15 @@ body {
   overflow-x: hidden;
   overflow-y: auto; /* Ensure vertical scrolling is enabled */
   min-height: 100%; /* Allow content to expand */
+  min-height: -webkit-fill-available; /* iOS Safari fix */
+}
+
+/* Prevent zoom on input focus for iOS */
+input, textarea, select {
+  font-size: 16px !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 /* ===== APP CONTAINER ===== */
@@ -377,6 +388,21 @@ a:hover {
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
+
+/* Mobile virtual keyboard handling */
+@media (max-width: 768px) {
+  /* Prevent body scroll when virtual keyboard is open */
+  body.keyboard-open {
+    position: fixed;
+    width: 100%;
+  }
+  
+  /* Smooth scrolling for mobile */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 0 var(--spacing-sm);

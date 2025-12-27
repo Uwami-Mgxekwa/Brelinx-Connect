@@ -1,0 +1,1158 @@
+<div class="register-page">
+  <!-- Background Pattern -->
+  <div class="background-pattern"></div>
+  
+  <div class="register-container">
+    <!-- Header Section -->
+    <div class="register-header">
+      <div class="logo-container">
+        <img src="src/assets/images/logo.png" alt="Brelinx Connect" class="logo">
+      </div>
+      <h1 class="welcome-title">Create Account</h1>
+      <p class="welcome-subtitle">Join Brelinx Connect to manage your projects</p>
+    </div>
+
+    <!-- Register Form -->
+    <form id="registerForm" class="register-form">
+      <!-- Name and Company Row -->
+      <div class="form-row">
+        <div class="input-group">
+          <label for="fullName" class="input-label">Full Name</label>
+          <div class="input-wrapper">
+            <ion-icon name="person-outline" class="input-icon"></ion-icon>
+            <input 
+              type="text" 
+              id="fullName" 
+              name="fullName" 
+              class="form-input" 
+              placeholder="Enter your full name"
+              required
+              autocomplete="name"
+            >
+          </div>
+          <div class="input-error" id="fullNameError"></div>
+        </div>
+
+        <div class="input-group">
+          <label for="companyName" class="input-label">Company Name</label>
+          <div class="input-wrapper">
+            <ion-icon name="business-outline" class="input-icon"></ion-icon>
+            <input 
+              type="text" 
+              id="companyName" 
+              name="companyName" 
+              class="form-input" 
+              placeholder="Enter your company name"
+              autocomplete="organization"
+            >
+          </div>
+          <div class="input-error" id="companyNameError"></div>
+        </div>
+      </div>
+
+      <!-- Email Input -->
+      <div class="input-group">
+        <label for="email" class="input-label">Email Address</label>
+        <div class="input-wrapper">
+          <ion-icon name="mail-outline" class="input-icon"></ion-icon>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            class="form-input" 
+            placeholder="Enter your email address"
+            required
+            autocomplete="email"
+          >
+        </div>
+        <div class="input-error" id="emailError"></div>
+      </div>
+
+      <!-- Password Row -->
+      <div class="form-row">
+        <div class="input-group">
+          <label for="password" class="input-label">Password</label>
+          <div class="input-wrapper">
+            <ion-icon name="lock-closed-outline" class="input-icon"></ion-icon>
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              class="form-input" 
+              placeholder="Create password"
+              required
+              autocomplete="new-password"
+            >
+            <button type="button" class="password-toggle" id="passwordToggle">
+              <ion-icon name="eye-outline" id="toggleIcon"></ion-icon>
+            </button>
+          </div>
+          <div class="input-error" id="passwordError"></div>
+        </div>
+
+        <div class="input-group">
+          <label for="confirmPassword" class="input-label">Confirm Password</label>
+          <div class="input-wrapper">
+            <ion-icon name="lock-closed-outline" class="input-icon"></ion-icon>
+            <input 
+              type="password" 
+              id="confirmPassword" 
+              name="confirmPassword" 
+              class="form-input" 
+              placeholder="Confirm password"
+              required
+              autocomplete="new-password"
+            >
+            <button type="button" class="password-toggle" id="confirmPasswordToggle">
+              <ion-icon name="eye-outline" id="confirmToggleIcon"></ion-icon>
+            </button>
+          </div>
+          <div class="input-error" id="confirmPasswordError"></div>
+        </div>
+      </div>
+
+      <!-- Password Requirements -->
+      <div class="password-requirements" id="passwordRequirements">
+        <p class="requirements-title">Password must contain:</p>
+        <ul class="requirements-list">
+          <li id="req-length" class="requirement">
+            <ion-icon name="checkmark-circle-outline" class="req-icon"></ion-icon>
+            <span>At least 8 characters</span>
+          </li>
+          <li id="req-uppercase" class="requirement">
+            <ion-icon name="checkmark-circle-outline" class="req-icon"></ion-icon>
+            <span>One uppercase letter</span>
+          </li>
+          <li id="req-lowercase" class="requirement">
+            <ion-icon name="checkmark-circle-outline" class="req-icon"></ion-icon>
+            <span>One lowercase letter</span>
+          </li>
+          <li id="req-number" class="requirement">
+            <ion-icon name="checkmark-circle-outline" class="req-icon"></ion-icon>
+            <span>One number</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Terms and Privacy -->
+      <div class="form-options">
+        <label class="checkbox-wrapper">
+          <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+          <span class="checkbox-custom"></span>
+          <span class="checkbox-label">
+            I agree to the <a href="#/terms" class="link">Terms of Service</a> 
+            and <a href="#/privacy" class="link">Privacy Policy</a>
+          </span>
+        </label>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="register-btn" id="registerBtn">
+        <span class="btn-text">Create Account</span>
+        <div class="btn-loader" style="display: none;">
+          <div class="loader-spinner"></div>
+        </div>
+      </button>
+    </form>
+
+    <!-- Divider -->
+    <div class="divider">
+      <span class="divider-text">Or sign up with</span>
+    </div>
+
+    <!-- Social Registration -->
+    <div class="social-buttons">
+      <button type="button" class="social-btn google-btn" id="googleRegister">
+        <ion-icon name="logo-google"></ion-icon>
+        <span>Google</span>
+      </button>
+      <button type="button" class="social-btn apple-btn" id="appleRegister">
+        <ion-icon name="logo-apple"></ion-icon>
+        <span>Apple</span>
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <div class="register-footer">
+      <p class="login-text">
+        Already have an account? 
+        <a href="#/auth/login" class="login-link">Sign In</a>
+      </p>
+      <p class="branding-text">Powered by <a href="https://brelinx.com" target="_blank" class="branding-link">Brelinx.com</a></p>
+    </div>
+  </div>
+</div>
+
+<style>
+/* CSS Variables - Following Brelinx Design System */
+:root {
+  /* Primary Colors - Monochromatic Green */
+  --primary: #2d8a5f;
+  --primary-light: #4a9d73;
+  --primary-dark: #1e5d42;
+  
+  /* Neutral Colors */
+  --neutral-gray: #6b7280;
+  --light-gray: #f3f4f6;
+  --dark-gray: #1f2937;
+  --white: #ffffff;
+  
+  /* Semantic Colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(45, 138, 95, 0.15);
+  --shadow-lg: 0 8px 24px rgba(45, 138, 95, 0.2);
+  
+  /* Typography */
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+  
+  /* Transitions */
+  --transition: all 0.3s ease;
+  --transition-fast: all 0.15s ease;
+}
+
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Prevent zoom on iOS when input is focused */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  /* Prevent horizontal scrolling */
+  overflow-x: hidden;
+}
+
+/* Prevent zoom on input focus for iOS */
+input, textarea, select {
+  font-size: 16px !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Fix for iOS Safari viewport units */
+html {
+  height: 100%;
+  height: -webkit-fill-available;
+}
+
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+/* Register Page Container */
+.register-page {
+  min-height: 100vh;
+  min-height: -webkit-fill-available; /* iOS Safari fix */
+  background: var(--light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  position: relative;
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  /* Handle virtual keyboard on mobile */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Background Pattern */
+.background-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(45, 138, 95, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(45, 138, 95, 0.03) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(45, 138, 95, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Main Container */
+.register-container {
+  width: 100%;
+  max-width: 500px; /* Increased width for horizontal fields */
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 1;
+  margin: var(--spacing-md) 0; /* Add vertical margin */
+}
+
+/* Header Section */
+.register-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.logo-container {
+  margin-bottom: var(--spacing-lg);
+}
+
+.logo {
+  max-width: 120px;
+  max-height: 64px;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* Maintain aspect ratio */
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.welcome-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--dark-gray);
+  margin-bottom: var(--spacing-sm);
+}
+
+.welcome-subtitle {
+  font-size: var(--font-size-base);
+  color: var(--neutral-gray);
+  font-weight: 400;
+}
+
+/* Form Styles */
+.register-form {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Form Row for horizontal layout */
+.form-row {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-row .input-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.input-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.input-label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--dark-gray);
+  margin-bottom: var(--spacing-sm);
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--neutral-gray);
+  font-size: 20px;
+  pointer-events: none;
+  transition: var(--transition-fast);
+  z-index: 2;
+}
+
+.form-input {
+  width: 100%;
+  height: 48px;
+  padding: 0 var(--spacing-md) 0 48px;
+  font-size: 16px !important; /* Prevent iOS zoom */
+  color: var(--dark-gray);
+  background: var(--white);
+  border: 2px solid #e5e7eb;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  -webkit-appearance: none;
+  appearance: none;
+  /* Prevent zoom on focus */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(45, 138, 95, 0.1);
+}
+
+.form-input:focus + .input-icon,
+.input-wrapper:focus-within .input-icon {
+  color: var(--primary);
+}
+
+.form-input::placeholder {
+  color: var(--neutral-gray);
+  opacity: 0.7;
+}
+
+/* Password Toggle */
+.password-toggle {
+  position: absolute;
+  right: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--neutral-gray);
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  z-index: 2;
+}
+
+.password-toggle:hover {
+  background: var(--light-gray);
+  color: var(--primary);
+}
+
+/* Input Error */
+.input-error {
+  font-size: var(--font-size-sm);
+  color: var(--error);
+  margin-top: var(--spacing-xs);
+  min-height: 20px;
+  opacity: 0;
+  transition: var(--transition-fast);
+}
+
+.input-group.error .input-error {
+  opacity: 1;
+}
+
+.input-group.error .form-input {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Password Requirements */
+.password-requirements {
+  background: var(--light-gray);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.password-requirements.show {
+  opacity: 1;
+  max-height: 200px;
+}
+
+.requirements-title {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--dark-gray);
+  margin-bottom: var(--spacing-sm);
+}
+
+.requirements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.requirement {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  color: var(--neutral-gray);
+  margin-bottom: var(--spacing-xs);
+  transition: var(--transition-fast);
+}
+
+.requirement.valid {
+  color: var(--success);
+}
+
+.requirement.valid .req-icon {
+  color: var(--success);
+}
+
+.req-icon {
+  font-size: 16px;
+  color: var(--neutral-gray);
+  transition: var(--transition-fast);
+}
+
+/* Form Options */
+.form-options {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Custom Checkbox */
+.checkbox-wrapper {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  color: var(--dark-gray);
+  line-height: 1.4;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-custom {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #e5e7eb;
+  border-radius: 4px;
+  margin-right: var(--spacing-sm);
+  margin-top: 2px;
+  position: relative;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + .checkbox-custom {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + .checkbox-custom::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid var(--white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-label {
+  user-select: none;
+}
+
+.link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Register Button */
+.register-btn {
+  width: 100%;
+  height: 48px;
+  background: var(--primary);
+  color: #ffffff !important; /* Force white text */
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-btn:hover {
+  background: var(--primary-dark);
+  color: #ffffff !important; /* Ensure white text on hover */
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.register-btn:active {
+  transform: translateY(0);
+  color: #ffffff !important; /* Ensure white text on active */
+}
+
+.register-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  color: #ffffff !important; /* Ensure white text when disabled */
+}
+
+/* Button Loading State */
+.btn-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loader-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid var(--white);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.register-btn.loading .btn-text {
+  opacity: 0;
+}
+
+.register-btn.loading .btn-loader {
+  display: block;
+}
+
+/* Ensure button text is white */
+.register-btn .btn-text {
+  color: #ffffff !important;
+}
+
+.register-btn:hover .btn-text {
+  color: #ffffff !important;
+}
+
+/* Divider */
+.divider {
+  text-align: center;
+  margin: var(--spacing-lg) 0;
+  position: relative;
+}
+
+.divider-text {
+  background: var(--white);
+  color: var(--neutral-gray);
+  font-size: var(--font-size-sm);
+  padding: 0 var(--spacing-md);
+  position: relative;
+  z-index: 1;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+/* Social Buttons */
+.social-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.social-btn {
+  flex: 1;
+  height: 48px;
+  background: var(--white);
+  border: 2px solid #e5e7eb;
+  border-radius: var(--radius-sm);
+  color: var(--dark-gray);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.social-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.social-btn ion-icon {
+  font-size: 20px;
+}
+
+/* Footer */
+.register-footer {
+  text-align: center;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid #e5e7eb;
+}
+
+.login-text {
+  font-size: var(--font-size-sm);
+  color: var(--neutral-gray);
+}
+
+.login-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.login-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Branding Text */
+.branding-text {
+  font-size: var(--font-size-xs);
+  color: var(--neutral-gray);
+  margin-top: var(--spacing-sm);
+  text-align: center;
+}
+
+.branding-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.branding-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 480px) {
+  .register-page {
+    padding: var(--spacing-sm);
+    /* Better handling for virtual keyboard */
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+  
+  .register-container {
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-sm);
+    max-width: 100%; /* Smaller on mobile */
+    width: 100%;
+    margin: 0;
+    /* Ensure container doesn't get cut off */
+    min-height: auto;
+  }
+  
+  .welcome-title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .form-input {
+    font-size: 16px !important; /* Critical: Prevents zoom on iOS */
+    height: 44px; /* iOS recommended minimum */
+  }
+  
+  .social-buttons {
+    flex-direction: column;
+  }
+  
+  .social-btn {
+    width: 100%;
+  }
+  
+  /* Stack form rows vertically on mobile */
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .form-row .input-group {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  /* Handle virtual keyboard appearance */
+  .register-page.keyboard-open {
+    align-items: flex-start;
+    padding-top: var(--spacing-sm);
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  .register-container {
+    padding: var(--spacing-md);
+  }
+  
+  .welcome-title {
+    font-size: var(--font-size-lg);
+  }
+  
+  .form-input {
+    font-size: 16px !important;
+    padding: 0 var(--spacing-sm) 0 40px;
+  }
+  
+  .input-icon {
+    left: var(--spacing-sm);
+  }
+}
+
+/* Very short screens (landscape phones) */
+@media (max-height: 500px) {
+  .register-page {
+    align-items: flex-start;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+  
+  .register-container {
+    margin: var(--spacing-xs) 0;
+    padding: var(--spacing-sm);
+  }
+  
+  .register-header {
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .logo-container {
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .logo {
+    max-width: 60px;
+    max-height: 32px;
+  }
+  
+  .welcome-title {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .welcome-subtitle {
+    font-size: var(--font-size-sm);
+  }
+  
+  .form-row {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .input-group {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .password-requirements {
+    padding: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .form-options {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .divider {
+    margin: var(--spacing-xs) 0;
+  }
+  
+  .social-buttons {
+    margin-bottom: var(--spacing-sm);
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .register-page {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    align-items: flex-start;
+  }
+  
+  .register-container {
+    padding: var(--spacing-sm);
+    margin: var(--spacing-xs) 0;
+  }
+  
+  .register-header {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .logo {
+    max-width: 80px;
+    max-height: 40px;
+  }
+  
+  .welcome-title {
+    font-size: var(--font-size-lg);
+  }
+  
+  .form-row {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .input-group {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .password-requirements {
+    margin-bottom: var(--spacing-xs);
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  .register-container {
+    padding: var(--spacing-lg);
+  }
+  
+  .welcome-title {
+    font-size: var(--font-size-lg);
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .register-page {
+    padding: var(--spacing-sm);
+  }
+  
+  .register-container {
+    padding: var(--spacing-lg);
+  }
+  
+  .register-header {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .logo {
+    max-width: 80px;
+    max-height: 48px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .welcome-title {
+    font-size: var(--font-size-lg);
+  }
+  
+  .password-requirements {
+    margin-bottom: var(--spacing-sm);
+  }
+}
+
+/* Short screens (for better visibility at 100% zoom) */
+@media (max-height: 750px) {
+  .register-page {
+    align-items: flex-start;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  .register-container {
+    margin: var(--spacing-sm) 0;
+    padding: var(--spacing-lg);
+  }
+  
+  .register-header {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .logo-container {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .logo {
+    max-width: 80px;
+    max-height: 48px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .welcome-title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .form-row {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .input-group {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .password-requirements {
+    padding: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .form-options {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .divider {
+    margin: var(--spacing-md) 0;
+  }
+  
+  .social-buttons {
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --white: #1f2937;
+    --light-gray: #111827;
+    --dark-gray: #f9fafb;
+    --neutral-gray: #9ca3af;
+  }
+  
+  .register-container {
+    background: var(--white);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  
+  .form-input {
+    background: #374151;
+    border-color: #4b5563;
+    color: var(--dark-gray);
+  }
+  
+  .form-input:focus {
+    border-color: var(--primary);
+    background: #374151;
+  }
+  
+  .social-btn {
+    background: #374151;
+    border-color: #4b5563;
+    color: var(--dark-gray);
+  }
+  
+  .password-requirements {
+    background: #374151;
+  }
+  
+  .divider::before {
+    background: #4b5563;
+  }
+  
+  .register-footer {
+    border-color: #4b5563;
+  }
+}
+
+/* Focus styles for accessibility */
+.register-btn:focus-visible,
+.social-btn:focus-visible,
+.link:focus-visible,
+.login-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+<script>
+// Handle virtual keyboard on mobile devices
+document.addEventListener('DOMContentLoaded', function() {
+  const registerPage = document.querySelector('.register-page');
+  const inputs = document.querySelectorAll('.form-input');
+  
+  // Detect virtual keyboard
+  let initialViewportHeight = window.innerHeight;
+  
+  function handleViewportChange() {
+    const currentHeight = window.innerHeight;
+    const heightDifference = initialViewportHeight - currentHeight;
+    
+    // If viewport height decreased significantly, keyboard is likely open
+    if (heightDifference > 150) {
+      registerPage.classList.add('keyboard-open');
+    } else {
+      registerPage.classList.remove('keyboard-open');
+    }
+  }
+  
+  // Listen for viewport changes
+  window.addEventListener('resize', handleViewportChange);
+  window.addEventListener('orientationchange', function() {
+    setTimeout(() => {
+      initialViewportHeight = window.innerHeight;
+      handleViewportChange();
+    }, 500);
+  });
+  
+  // Handle input focus/blur
+  inputs.forEach(input => {
+    input.addEventListener('focus', function() {
+      setTimeout(() => {
+        this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 300);
+    });
+  });
+  
+  // Prevent zoom on double tap
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', function(event) {
+    const now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault();
+    }
+    lastTouchEnd = now;
+  }, false);
+});
+</script>

@@ -56,82 +56,18 @@ class AuthService {
    */
   async login(credentials) {
     try {
-      // Demo credentials for testing
-      const demoCredentials = [
-        {
-          email: 'demo@brelinx.com',
-          password: 'demo123',
-          user: {
-            id: 1,
-            name: 'Demo User',
-            fullName: 'Demo User',
-            email: 'demo@brelinx.com',
-            role: 'client',
-            avatar: null,
-            company: 'Brelinx Demo',
-            phone: '+1 (555) 123-4567'
-          }
-        },
-        {
-          email: 'admin@brelinx.com',
-          password: 'admin123',
-          user: {
-            id: 2,
-            name: 'Admin User',
-            fullName: 'Admin User',
-            email: 'admin@brelinx.com',
-            role: 'admin',
-            avatar: null,
-            company: 'Brelinx',
-            phone: '+1 (555) 987-6543'
-          }
-        },
-        {
-          email: 'client@brelinx.com',
-          password: 'client123',
-          user: {
-            id: 3,
-            name: 'John Smith',
-            fullName: 'John Smith',
-            email: 'client@brelinx.com',
-            role: 'client',
-            avatar: null,
-            company: 'Smith Industries',
-            phone: '+1 (555) 456-7890'
-          }
-        }
-      ];
-
-      // Check demo credentials first
-      const demoUser = demoCredentials.find(demo => 
-        demo.email === credentials.email && demo.password === credentials.password
-      );
-
-      if (demoUser) {
-        // Simulate successful login with demo user
-        const authData = {
-          token: 'demo_jwt_token_' + Date.now(),
-          refreshToken: 'demo_refresh_token_' + Date.now(),
-          user: demoUser.user,
-          success: true
-        };
-        
-        this.setAuthData(authData, credentials.remember);
-        return { success: true, user: this.currentUser };
-      }
-
-      // If not demo credentials, try API service
+      // Use API service for login
       const response = await window.apiService.login(credentials);
       
       if (response.data.success) {
         this.setAuthData(response.data, credentials.remember);
         return { success: true, user: this.currentUser };
       } else {
-        return { success: false, message: response.data.message || 'Invalid credentials. Try demo@brelinx.com / demo123' };
+        return { success: false, message: response.data.message };
       }
     } catch (error) {
       console.error('Login error:', error);
-      return { success: false, message: 'Login failed. Try demo@brelinx.com / demo123' };
+      return { success: false, message: 'Login failed. Please try again.' };
     }
   }
 

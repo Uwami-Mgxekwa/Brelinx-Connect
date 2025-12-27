@@ -148,29 +148,41 @@ class AuthController {
     this.setButtonLoading(loginBtn, true);
 
     try {
-      // Use the auth service for login
-      const response = await window.authService.login({
+      // Simulate API call (replace with actual API service)
+      const response = await this.loginUser({
         email,
         password,
         remember: !!remember
       });
 
       if (response.success) {
+        // Store auth token
+        if (remember) {
+          localStorage.setItem('authToken', response.token);
+          localStorage.setItem('refreshToken', response.refreshToken);
+        } else {
+          sessionStorage.setItem('authToken', response.token);
+          sessionStorage.setItem('refreshToken', response.refreshToken);
+        }
+
+        // Store user data
+        localStorage.setItem('userData', JSON.stringify(response.user));
+
         // Show success message
         this.showToast('Login successful! Redirecting...', 'success');
 
-        // Redirect to dashboard using router
+        // Redirect to dashboard
         setTimeout(() => {
-          window.router.navigate('/dashboard');
+          window.location.hash = '#/dashboard';
         }, 1000);
 
       } else {
-        this.showError('email', response.message || 'Login failed. Please try again.');
+        this.showError('login', response.message || 'Login failed. Please try again.');
       }
 
     } catch (error) {
       console.error('Login error:', error);
-      this.showError('email', 'Network error. Please check your connection and try again.');
+      this.showError('login', 'Network error. Please check your connection and try again.');
     } finally {
       this.setButtonLoading(loginBtn, false);
     }
@@ -208,8 +220,8 @@ class AuthController {
     this.setButtonLoading(registerBtn, true);
 
     try {
-      // Use the auth service for registration
-      const response = await window.authService.register({
+      // Simulate API call (replace with actual API service)
+      const response = await this.registerUser({
         fullName,
         companyName,
         email,
@@ -222,16 +234,16 @@ class AuthController {
 
         // Redirect to login after delay
         setTimeout(() => {
-          window.router.navigate('/auth/login');
+          window.location.hash = '#/auth/login';
         }, 2000);
 
       } else {
-        this.showError('email', response.message || 'Registration failed. Please try again.');
+        this.showError('register', response.message || 'Registration failed. Please try again.');
       }
 
     } catch (error) {
       console.error('Registration error:', error);
-      this.showError('email', 'Network error. Please check your connection and try again.');
+      this.showError('register', 'Network error. Please check your connection and try again.');
     } finally {
       this.setButtonLoading(registerBtn, false);
     }
@@ -319,24 +331,65 @@ class AuthController {
    * Simulate send reset email API call (replace with actual API service)
    */
   async sendResetEmail(email) {
-    // Use auth service for password reset
-    const response = await window.authService.resetPassword(email);
-    return response;
-  }
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 1500));
 
-  /**
-   * Validate full name
-   */
-  validateFullName(fullName) {
-    const isValid = fullName && fullName.trim().length >= 2;
-    
-    if (!isValid && fullName) {
-      this.showError('fullName', 'Please enter your full name (at least 2 characters)');
-      return false;
+    // Mock response - replace with actual API call
+    return {
+      success: true,
+      message: 'Reset email sent successfully'
+    };
+  }
+  async registerUser(userData) {
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    // Mock response - replace with actual API call
+    // Check if email already exists (mock check)
+    if (userData.email === 'existing@example.com') {
+      return {
+        success: false,
+        message: 'An account with this email already exists'
+      };
     }
-    
-    this.clearError('fullName');
-    return true;
+
+    return {
+      success: true,
+      message: 'Account created successfully',
+      user: {
+        id: Date.now().toString(),
+        email: userData.email,
+        name: userData.fullName,
+        company: userData.companyName,
+        role: 'client',
+        emailVerified: false
+      }
+    };
+  }
+  async loginUser(credentials) {
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    // Mock response - replace with actual API call
+    if (credentials.email === 'demo@brelinx.com' && credentials.password === 'demo123') {
+      return {
+        success: true,
+        token: 'mock-jwt-token-' + Date.now(),
+        refreshToken: 'mock-refresh-token-' + Date.now(),
+        user: {
+          id: '1',
+          email: credentials.email,
+          name: 'Demo User',
+          company: 'Demo Company',
+          role: 'client'
+        }
+      };
+    } else {
+      return {
+        success: false,
+        message: 'Invalid email or password'
+      };
+    }
   }
 
   /**
@@ -382,7 +435,7 @@ class AuthController {
       this.showToast('Login successful!', 'success');
       
       setTimeout(() => {
-        window.router.navigate('/dashboard');
+        window.location.hash = '#/dashboard';
       }, 1000);
 
     } catch (error) {
@@ -417,7 +470,7 @@ class AuthController {
         this.showToast('Biometric login successful!', 'success');
         
         setTimeout(() => {
-          window.router.navigate('/dashboard');
+          window.location.hash = '#/dashboard';
         }, 1000);
       } else {
         this.showToast('No biometric data found. Please login normally first.', 'warning');

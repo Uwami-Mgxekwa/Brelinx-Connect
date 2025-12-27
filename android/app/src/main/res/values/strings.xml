@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">Brelinx Connect</string>
-    <string name="title_activity_main">Brelinx Connect</string>
-    <string name="package_name">com.brelinx.connect</string>
-    <string name="custom_url_scheme">com.brelinx.connect</string>
-</resources>

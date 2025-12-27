@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bcaec8ed-475a-49a9-8969-d5130b64ab4f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/capacitor.build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/getcapacitor/myapp/ExampleInstrumentedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/capacitor.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/capacitor.plugins.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/cordova.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/cordova_plugins.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/assets/icons/icon-128.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/assets/icons/icon-192.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/assets/icons/icon-256.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/assets/icons/icon-48.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/assets/icons/icon-512.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/assets/icons/icon-72.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/assets/icons/icon-96.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/assets/images/icons/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/assets/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/assets/images/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/assets/images/placeholders/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/assets/images/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/assets/images/splash2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/css/components/buttons.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/css/components/cards.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/css/components/forms.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/css/components/modals.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/css/components/navigation.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/css/global.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/css/pages/auth.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/css/pages/chat.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/css/pages/dashboard.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/css/pages/profile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/css/pages/projects.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/css/variables.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/components/file-uploader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/components/loader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/components/modal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/components/toast.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/pages/auth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/pages/chat.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/pages/dashboard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/pages/profile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/pages/projects.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/router.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/services/api.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/services/auth.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/services/chat.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/services/file.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/services/payment.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/services/project.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/services/websocket.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/utils/date.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/utils/helpers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/utils/notifications.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/utils/storage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/js/utils/validation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/auth/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/auth/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/auth/reset-password.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/chat/chat-room.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/chat/conversations.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/dashboard/dashboard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/feedback/submit-feedback.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/files/file-viewer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/files/files-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/meetings/calendar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/meetings/meeting-details.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/payments/invoices.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/payments/make-payment.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/payments/payment-history.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/profile/profile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/profile/settings.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/projects/project-detail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/projects/project-timeline.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/public/src/pages/projects/projects-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/brelinx/connect/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-land-hdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-land-mdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-land-xhdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-land-xxhdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-land-xxxhdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-port-hdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-port-mdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-port-xhdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-port-xxhdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-port-xxxhdpi/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/file_paths.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/getcapacitor/myapp/ExampleUnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capacitor-cordova-android-plugins/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capacitor-cordova-android-plugins/cordova.variables.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capacitor-cordova-android-plugins/src/main/java/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capacitor-cordova-android-plugins/src/main/res/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capacitor.settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/variables.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/android/capacitor/build/intermediates/merged_java_res/debug/mergeDebugJavaResource/feature-capacitor-android.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/.transforms/29c40360d2b1eddb62f79a3e014bc8dc/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/.transforms/29c40360d2b1eddb62f79a3e014bc8dc/transformed/classes/classes_dex/classes.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/output-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/aar_main_jar/debug/syncDebugLibJars/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/annotation_processor_list/debug/javaPreCompileDebug/annotationProcessors.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/annotations_typedef_file/debug/extractDebugAnnotations/typedefs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/compile_symbol_list/debug/generateDebugRFile/R.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/incremental/debug-mergeJavaRes/merge-state" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/incremental/mergeDebugShaders/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/app/AppPlugin$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/app/AppPlugin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/merged_java_res/debug/mergeDebugJavaResource/feature-capacitor-app.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/navigation_json/debug/extractDeepLinksDebug/navigation.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/nested_resources_validation_report/debug/generateDebugResources/nestedResourcesValidationReport.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/outputs/aar/capacitor-app-debug.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/app/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/.transforms/130c12f49ceeafa5d308bf33306b8da8/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/.transforms/130c12f49ceeafa5d308bf33306b8da8/transformed/classes/classes_dex/classes.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/output-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/aar_main_jar/debug/syncDebugLibJars/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/annotation_processor_list/debug/javaPreCompileDebug/annotationProcessors.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/annotations_typedef_file/debug/extractDebugAnnotations/typedefs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/compile_symbol_list/debug/generateDebugRFile/R.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/incremental/debug-mergeJavaRes/merge-state" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/incremental/mergeDebugShaders/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/haptics/Haptics.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/haptics/HapticsPlugin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/haptics/arguments/HapticsImpactType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/haptics/arguments/HapticsNotificationType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/haptics/arguments/HapticsSelectionType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/haptics/arguments/HapticsVibrationType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/merged_java_res/debug/mergeDebugJavaResource/feature-capacitor-haptics.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/navigation_json/debug/extractDeepLinksDebug/navigation.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/nested_resources_validation_report/debug/generateDebugResources/nestedResourcesValidationReport.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/outputs/aar/capacitor-haptics-debug.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/.transforms/f0e9121698fd78ce40461598e314b9f1/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/.transforms/f0e9121698fd78ce40461598e314b9f1/transformed/classes/classes_dex/classes.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/output-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/aar_main_jar/debug/syncDebugLibJars/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/annotation_processor_list/debug/javaPreCompileDebug/annotationProcessors.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/annotations_typedef_file/debug/extractDebugAnnotations/typedefs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/compile_symbol_list/debug/generateDebugRFile/R.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/incremental/debug-mergeJavaRes/merge-state" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/incremental/mergeDebugShaders/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/keyboard/Keyboard$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/keyboard/Keyboard$KeyboardEventListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/keyboard/Keyboard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/keyboard/KeyboardPlugin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/merged_java_res/debug/mergeDebugJavaResource/feature-capacitor-keyboard.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/navigation_json/debug/extractDeepLinksDebug/navigation.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/nested_resources_validation_report/debug/generateDebugResources/nestedResourcesValidationReport.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/outputs/aar/capacitor-keyboard-debug.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/.transforms/f7a1f8ac25979e5453820573adce04ce/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/.transforms/f7a1f8ac25979e5453820573adce04ce/transformed/classes/classes_dex/classes.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/output-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/aar_main_jar/debug/syncDebugLibJars/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/annotation_processor_list/debug/javaPreCompileDebug/annotationProcessors.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/annotations_typedef_file/debug/extractDebugAnnotations/typedefs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/compile_symbol_list/debug/generateDebugRFile/R.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/incremental/debug-mergeJavaRes/merge-state" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/incremental/mergeDebugShaders/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/splashscreen/SplashListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/splashscreen/SplashScreen$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/splashscreen/SplashScreen$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/splashscreen/SplashScreen$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/splashscreen/SplashScreen$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/splashscreen/SplashScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/splashscreen/SplashScreenConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/splashscreen/SplashScreenPlugin$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/splashscreen/SplashScreenPlugin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/splashscreen/SplashScreenSettings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/merged_java_res/debug/mergeDebugJavaResource/feature-capacitor-splash-screen.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/navigation_json/debug/extractDeepLinksDebug/navigation.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/nested_resources_validation_report/debug/generateDebugResources/nestedResourcesValidationReport.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/outputs/aar/capacitor-splash-screen-debug.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/.transforms/89e9a5f11a693c7ed64604652ca4d0ff/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/.transforms/89e9a5f11a693c7ed64604652ca4d0ff/transformed/classes/classes_dex/classes.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/output-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/aar_main_jar/debug/syncDebugLibJars/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/annotation_processor_list/debug/javaPreCompileDebug/annotationProcessors.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/annotations_typedef_file/debug/extractDebugAnnotations/typedefs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/compile_symbol_list/debug/generateDebugRFile/R.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/incremental/debug-mergeJavaRes/merge-state" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/incremental/mergeDebugShaders/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/statusbar/StatusBar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/statusbar/StatusBarInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/capacitorjs/plugins/statusbar/StatusBarPlugin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/merged_java_res/debug/mergeDebugJavaResource/feature-capacitor-status-bar.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/navigation_json/debug/extractDeepLinksDebug/navigation.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/nested_resources_validation_report/debug/generateDebugResources/nestedResourcesValidationReport.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/outputs/aar/capacitor-status-bar-debug.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="37R5X4E3u1LbmIHoLfhAR3CdasG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Upgrade Gradle wrapper.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "android.gradle.sync.needed": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "settings.editor.selected.configurable": "AndroidSdkUpdater"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bcaec8ed-475a-49a9-8969-d5130b64ab4f" name="Changes" comment="" />
+      <created>1766853084624</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1766853084624</updated>
+    </task>
+    <servers />
+  </component>
+</project>

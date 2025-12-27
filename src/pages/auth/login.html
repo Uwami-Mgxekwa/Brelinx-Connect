@@ -103,6 +103,7 @@
         Don't have an account? 
         <a href="#/auth/register" class="signup-link">Create Account</a>
       </p>
+      <p class="branding-text">Powered by <a href="https://brelinx.com" target="_blank" class="branding-link">Brelinx.com</a></p>
     </div>
   </div>
 </div>
@@ -638,6 +639,26 @@ body {
 }
 
 .signup-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Branding Text */
+.branding-text {
+  font-size: var(--font-size-xs);
+  color: var(--neutral-gray);
+  margin-top: var(--spacing-sm);
+  text-align: center;
+}
+
+.branding-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.branding-link:hover {
   color: var(--primary-dark);
   text-decoration: underline;
 }

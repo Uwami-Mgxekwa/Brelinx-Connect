@@ -1,0 +1,287 @@
+/**
+ * Brelinx Connect - CSS Variables
+ * Design System Implementation
+ */
+
+:root {
+  /* ===== PRIMARY COLORS - Monochromatic Green ===== */
+  --ion-color-primary: #2d8a5f;
+  --ion-color-primary-rgb: 45, 138, 95;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #1e5d42;
+  --ion-color-primary-tint: #4a9d73;
+
+  /* Primary Variations */
+  --primary: #2d8a5f;
+  --primary-light: #4a9d73;
+  --primary-dark: #1e5d42;
+  --primary-rgb: 45, 138, 95;
+
+  /* ===== SECONDARY COLORS ===== */
+  --ion-color-secondary: #6b7280;
+  --ion-color-secondary-rgb: 107, 114, 128;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #5b6470;
+  --ion-color-secondary-tint: #7a818d;
+
+  /* ===== SEMANTIC COLORS ===== */
+  /* Success */
+  --ion-color-success: #10b981;
+  --ion-color-success-rgb: 16, 185, 129;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #0e9f6e;
+  --ion-color-success-tint: #28c76f;
+
+  /* Warning */
+  --ion-color-warning: #f59e0b;
+  --ion-color-warning-rgb: 245, 158, 11;
+  --ion-color-warning-contrast: #ffffff;
+  --ion-color-warning-contrast-rgb: 255, 255, 255;
+  --ion-color-warning-shade: #d78b0a;
+  --ion-color-warning-tint: #f6a824;
+
+  /* Danger/Error */
+  --ion-color-danger: #ef4444;
+  --ion-color-danger-rgb: 239, 68, 68;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #d23c3c;
+  --ion-color-danger-tint: #f15757;
+
+  /* Info */
+  --ion-color-info: #3b82f6;
+  --ion-color-info-rgb: 59, 130, 246;
+  --ion-color-info-contrast: #ffffff;
+  --ion-color-info-contrast-rgb: 255, 255, 255;
+  --ion-color-info-shade: #3472d8;
+  --ion-color-info-tint: #4f8ff7;
+
+  /* ===== NEUTRAL COLORS ===== */
+  --neutral-gray: #6b7280;
+  --light-gray: #f3f4f6;
+  --dark-gray: #1f2937;
+  --white: #ffffff;
+  --black: #000000;
+
+  /* Gray Scale */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  /* ===== BACKGROUND COLORS ===== */
+  --ion-background-color: #f3f4f6;
+  --ion-background-color-rgb: 243, 244, 246;
+  
+  --ion-item-background: #ffffff;
+  --ion-item-background-rgb: 255, 255, 255;
+  
+  --ion-card-background: #ffffff;
+  --ion-card-background-rgb: 255, 255, 255;
+
+  /* ===== TEXT COLORS ===== */
+  --ion-text-color: #1f2937;
+  --ion-text-color-rgb: 31, 41, 55;
+  
+  --ion-text-color-secondary: #6b7280;
+  --ion-text-color-secondary-rgb: 107, 114, 128;
+
+  /* ===== SPACING SYSTEM ===== */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+
+  /* Ionic Spacing Variables */
+  --ion-padding: 16px;
+  --ion-margin: 16px;
+
+  /* ===== BORDER RADIUS ===== */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* ===== SHADOWS ===== */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(45, 138, 95, 0.15);
+  --shadow-lg: 0 8px 24px rgba(45, 138, 95, 0.2);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.15);
+
+  /* Card Shadows */
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --card-shadow-hover: 0 4px 12px rgba(45, 138, 95, 0.15);
+
+  /* ===== TYPOGRAPHY ===== */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+
+  /* Font Sizes */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
+  --font-size-4xl: 36px;
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  /* ===== TRANSITIONS ===== */
+  --transition-fast: all 0.15s ease;
+  --transition-base: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
+
+  /* ===== Z-INDEX SCALE ===== */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-toast: 1080;
+
+  /* ===== COMPONENT SPECIFIC ===== */
+  /* Buttons */
+  --button-height: 48px;
+  --button-height-sm: 36px;
+  --button-height-lg: 56px;
+  --button-border-radius: 24px;
+
+  /* Form Elements */
+  --input-height: 48px;
+  --input-border-radius: 8px;
+  --input-border-color: #e5e7eb;
+  --input-border-color-focus: var(--primary);
+
+  /* Cards */
+  --card-padding: 16px;
+  --card-border-radius: 12px;
+  --card-background: var(--white);
+
+  /* Navigation */
+  --nav-height: 56px;
+  --tab-bar-height: 60px;
+
+  /* ===== BREAKPOINTS ===== */
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}
+
+/* ===== DARK MODE VARIABLES ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Background Colors */
+    --ion-background-color: #111827;
+    --ion-background-color-rgb: 17, 24, 39;
+    
+    --ion-item-background: #1f2937;
+    --ion-item-background-rgb: 31, 41, 55;
+    
+    --ion-card-background: #1f2937;
+    --ion-card-background-rgb: 31, 41, 55;
+
+    /* Text Colors */
+    --ion-text-color: #f9fafb;
+    --ion-text-color-rgb: 249, 250, 251;
+    
+    --ion-text-color-secondary: #9ca3af;
+    --ion-text-color-secondary-rgb: 156, 163, 175;
+
+    /* Neutral Colors */
+    --white: #1f2937;
+    --light-gray: #111827;
+    --dark-gray: #f9fafb;
+    --neutral-gray: #9ca3af;
+
+    /* Input Colors */
+    --input-border-color: #4b5563;
+    --card-background: #1f2937;
+
+    /* Shadows (adjusted for dark mode) */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ===== CUSTOM PROPERTIES FOR COMPONENTS ===== */
+.ion-color-primary {
+  --ion-color-base: var(--ion-color-primary);
+  --ion-color-base-rgb: var(--ion-color-primary-rgb);
+  --ion-color-contrast: var(--ion-color-primary-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-primary-contrast-rgb);
+  --ion-color-shade: var(--ion-color-primary-shade);
+  --ion-color-tint: var(--ion-color-primary-tint);
+}
+
+.ion-color-secondary {
+  --ion-color-base: var(--ion-color-secondary);
+  --ion-color-base-rgb: var(--ion-color-secondary-rgb);
+  --ion-color-contrast: var(--ion-color-secondary-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-secondary-contrast-rgb);
+  --ion-color-shade: var(--ion-color-secondary-shade);
+  --ion-color-tint: var(--ion-color-secondary-tint);
+}
+
+.ion-color-success {
+  --ion-color-base: var(--ion-color-success);
+  --ion-color-base-rgb: var(--ion-color-success-rgb);
+  --ion-color-contrast: var(--ion-color-success-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-success-contrast-rgb);
+  --ion-color-shade: var(--ion-color-success-shade);
+  --ion-color-tint: var(--ion-color-success-tint);
+}
+
+.ion-color-warning {
+  --ion-color-base: var(--ion-color-warning);
+  --ion-color-base-rgb: var(--ion-color-warning-rgb);
+  --ion-color-contrast: var(--ion-color-warning-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-warning-contrast-rgb);
+  --ion-color-shade: var(--ion-color-warning-shade);
+  --ion-color-tint: var(--ion-color-warning-tint);
+}
+
+.ion-color-danger {
+  --ion-color-base: var(--ion-color-danger);
+  --ion-color-base-rgb: var(--ion-color-danger-rgb);
+  --ion-color-contrast: var(--ion-color-danger-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-danger-contrast-rgb);
+  --ion-color-shade: var(--ion-color-danger-shade);
+  --ion-color-tint: var(--ion-color-danger-tint);
+}

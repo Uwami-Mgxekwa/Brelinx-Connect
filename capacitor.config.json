@@ -1,7 +1,7 @@
 {
   "appId": "com.brelinx.connect",
   "appName": "Brelinx Connect",
-  "webDir": ".",
+  "webDir": "dist",
   "server": {
     "androidScheme": "https"
   },

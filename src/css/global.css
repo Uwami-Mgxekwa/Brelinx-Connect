@@ -16,6 +16,8 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-y: auto; /* Ensure vertical scrolling is enabled */
+  height: 100%; /* Allow full height */
 }
 
 body {
@@ -26,6 +28,8 @@ body {
   color: var(--ion-text-color);
   background-color: var(--ion-background-color);
   overflow-x: hidden;
+  overflow-y: auto; /* Ensure vertical scrolling is enabled */
+  min-height: 100%; /* Allow content to expand */
 }
 
 /* ===== APP CONTAINER ===== */

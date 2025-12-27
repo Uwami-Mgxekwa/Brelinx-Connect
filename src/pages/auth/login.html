@@ -6,7 +6,7 @@
     <!-- Header Section -->
     <div class="login-header">
       <div class="logo-container">
-        <img src="../../assets/images/logo.svg" alt="Brelinx Connect" class="logo">
+        <img src="assets/images/logo.png" alt="Brelinx Connect" class="logo">
       </div>
       <h1 class="welcome-title">Welcome Back</h1>
       <p class="welcome-subtitle">Sign in to access your projects</p>
@@ -179,9 +179,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
   position: relative;
-  overflow: hidden;
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Background Pattern */
@@ -204,16 +205,17 @@ body {
   max-width: 400px;
   background: var(--white);
   border-radius: var(--radius-md);
-  padding: var(--spacing-2xl);
+  padding: var(--spacing-xl);
   box-shadow: var(--shadow-sm);
   position: relative;
   z-index: 1;
+  margin: var(--spacing-md) 0; /* Add vertical margin for better spacing */
 }
 
 /* Header Section */
 .login-header {
   text-align: center;
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 .logo-container {
@@ -221,8 +223,11 @@ body {
 }
 
 .logo {
-  width: 64px;
-  height: 64px;
+  max-width: 120px;
+  max-height: 64px;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* Maintain aspect ratio */
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
 }
@@ -242,7 +247,7 @@ body {
 
 /* Form Styles */
 .login-form {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 .input-group {
@@ -353,7 +358,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 /* Custom Checkbox */
@@ -419,7 +424,7 @@ body {
   width: 100%;
   height: 48px;
   background: var(--primary);
-  color: var(--white);
+  color: #ffffff !important; /* Force white text */
   border: none;
   border-radius: var(--radius-lg);
   font-size: var(--font-size-base);
@@ -435,18 +440,21 @@ body {
 
 .login-btn:hover {
   background: var(--primary-dark);
+  color: #ffffff !important; /* Ensure white text on hover */
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
 }
 
 .login-btn:active {
   transform: translateY(0);
+  color: #ffffff !important; /* Ensure white text on active */
 }
 
 .login-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
+  color: #ffffff !important; /* Ensure white text when disabled */
 }
 
 /* Button Loading State */
@@ -479,10 +487,19 @@ body {
   display: block;
 }
 
+/* Ensure button text is white */
+.login-btn .btn-text {
+  color: #ffffff !important;
+}
+
+.login-btn:hover .btn-text {
+  color: #ffffff !important;
+}
+
 /* Divider */
 .divider {
   text-align: center;
-  margin: var(--spacing-xl) 0;
+  margin: var(--spacing-lg) 0;
   position: relative;
 }
 
@@ -509,7 +526,7 @@ body {
 .social-buttons {
   display: flex;
   gap: var(--spacing-md);
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 .social-btn {
@@ -543,7 +560,7 @@ body {
 /* Biometric Section */
 .biometric-section {
   text-align: center;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 .biometric-btn {
@@ -655,12 +672,66 @@ body {
   }
   
   .logo {
-    width: 48px;
-    height: 48px;
+    max-width: 100px;
+    max-height: 48px;
   }
   
   .welcome-title {
     font-size: var(--font-size-lg);
+  }
+}
+
+/* Short screens (for better visibility at 100% zoom) */
+@media (max-height: 700px) {
+  .login-page {
+    align-items: flex-start;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  .login-container {
+    margin: var(--spacing-sm) 0;
+    padding: var(--spacing-lg);
+  }
+  
+  .login-header {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .logo-container {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .logo {
+    max-width: 80px;
+    max-height: 48px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .welcome-title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .input-group {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .form-options {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .divider {
+    margin: var(--spacing-md) 0;
+  }
+  
+  .social-buttons {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .biometric-section {
+    margin-bottom: var(--spacing-md);
   }
 }
 

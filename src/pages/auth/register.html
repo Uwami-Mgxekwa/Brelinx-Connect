@@ -6,7 +6,7 @@
     <!-- Header Section -->
     <div class="register-header">
       <div class="logo-container">
-        <img src="../../assets/images/logo.svg" alt="Brelinx Connect" class="logo">
+        <img src="assets/images/logo.png" alt="Brelinx Connect" class="logo">
       </div>
       <h1 class="welcome-title">Create Account</h1>
       <p class="welcome-subtitle">Join Brelinx Connect to manage your projects</p>
@@ -14,39 +14,40 @@
 
     <!-- Register Form -->
     <form id="registerForm" class="register-form">
-      <!-- Full Name Input -->
-      <div class="input-group">
-        <label for="fullName" class="input-label">Full Name</label>
-        <div class="input-wrapper">
-          <ion-icon name="person-outline" class="input-icon"></ion-icon>
-          <input 
-            type="text" 
-            id="fullName" 
-            name="fullName" 
-            class="form-input" 
-            placeholder="Enter your full name"
-            required
-            autocomplete="name"
-          >
+      <!-- Name and Company Row -->
+      <div class="form-row">
+        <div class="input-group">
+          <label for="fullName" class="input-label">Full Name</label>
+          <div class="input-wrapper">
+            <ion-icon name="person-outline" class="input-icon"></ion-icon>
+            <input 
+              type="text" 
+              id="fullName" 
+              name="fullName" 
+              class="form-input" 
+              placeholder="Enter your full name"
+              required
+              autocomplete="name"
+            >
+          </div>
+          <div class="input-error" id="fullNameError"></div>
         </div>
-        <div class="input-error" id="fullNameError"></div>
-      </div>
 
-      <!-- Company Name Input -->
-      <div class="input-group">
-        <label for="companyName" class="input-label">Company Name</label>
-        <div class="input-wrapper">
-          <ion-icon name="business-outline" class="input-icon"></ion-icon>
-          <input 
-            type="text" 
-            id="companyName" 
-            name="companyName" 
-            class="form-input" 
-            placeholder="Enter your company name"
-            autocomplete="organization"
-          >
+        <div class="input-group">
+          <label for="companyName" class="input-label">Company Name</label>
+          <div class="input-wrapper">
+            <ion-icon name="business-outline" class="input-icon"></ion-icon>
+            <input 
+              type="text" 
+              id="companyName" 
+              name="companyName" 
+              class="form-input" 
+              placeholder="Enter your company name"
+              autocomplete="organization"
+            >
+          </div>
+          <div class="input-error" id="companyNameError"></div>
         </div>
-        <div class="input-error" id="companyNameError"></div>
       </div>
 
       <!-- Email Input -->
@@ -67,46 +68,47 @@
         <div class="input-error" id="emailError"></div>
       </div>
 
-      <!-- Password Input -->
-      <div class="input-group">
-        <label for="password" class="input-label">Password</label>
-        <div class="input-wrapper">
-          <ion-icon name="lock-closed-outline" class="input-icon"></ion-icon>
-          <input 
-            type="password" 
-            id="password" 
-            name="password" 
-            class="form-input" 
-            placeholder="Create a strong password"
-            required
-            autocomplete="new-password"
-          >
-          <button type="button" class="password-toggle" id="passwordToggle">
-            <ion-icon name="eye-outline" id="toggleIcon"></ion-icon>
-          </button>
+      <!-- Password Row -->
+      <div class="form-row">
+        <div class="input-group">
+          <label for="password" class="input-label">Password</label>
+          <div class="input-wrapper">
+            <ion-icon name="lock-closed-outline" class="input-icon"></ion-icon>
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              class="form-input" 
+              placeholder="Create password"
+              required
+              autocomplete="new-password"
+            >
+            <button type="button" class="password-toggle" id="passwordToggle">
+              <ion-icon name="eye-outline" id="toggleIcon"></ion-icon>
+            </button>
+          </div>
+          <div class="input-error" id="passwordError"></div>
         </div>
-        <div class="input-error" id="passwordError"></div>
-      </div>
 
-      <!-- Confirm Password Input -->
-      <div class="input-group">
-        <label for="confirmPassword" class="input-label">Confirm Password</label>
-        <div class="input-wrapper">
-          <ion-icon name="lock-closed-outline" class="input-icon"></ion-icon>
-          <input 
-            type="password" 
-            id="confirmPassword" 
-            name="confirmPassword" 
-            class="form-input" 
-            placeholder="Confirm your password"
-            required
-            autocomplete="new-password"
-          >
-          <button type="button" class="password-toggle" id="confirmPasswordToggle">
-            <ion-icon name="eye-outline" id="confirmToggleIcon"></ion-icon>
-          </button>
+        <div class="input-group">
+          <label for="confirmPassword" class="input-label">Confirm Password</label>
+          <div class="input-wrapper">
+            <ion-icon name="lock-closed-outline" class="input-icon"></ion-icon>
+            <input 
+              type="password" 
+              id="confirmPassword" 
+              name="confirmPassword" 
+              class="form-input" 
+              placeholder="Confirm password"
+              required
+              autocomplete="new-password"
+            >
+            <button type="button" class="password-toggle" id="confirmPasswordToggle">
+              <ion-icon name="eye-outline" id="confirmToggleIcon"></ion-icon>
+            </button>
+          </div>
+          <div class="input-error" id="confirmPasswordError"></div>
         </div>
-        <div class="input-error" id="confirmPasswordError"></div>
       </div>
 
       <!-- Password Requirements -->
@@ -252,9 +254,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
   position: relative;
-  overflow: hidden;
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Background Pattern */
@@ -274,19 +277,20 @@ body {
 /* Main Container */
 .register-container {
   width: 100%;
-  max-width: 420px;
+  max-width: 500px; /* Increased width for horizontal fields */
   background: var(--white);
   border-radius: var(--radius-md);
-  padding: var(--spacing-2xl);
+  padding: var(--spacing-xl);
   box-shadow: var(--shadow-sm);
   position: relative;
   z-index: 1;
+  margin: var(--spacing-md) 0; /* Add vertical margin */
 }
 
 /* Header Section */
 .register-header {
   text-align: center;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 .logo-container {
@@ -294,8 +298,11 @@ body {
 }
 
 .logo {
-  width: 64px;
-  height: 64px;
+  max-width: 120px;
+  max-height: 64px;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* Maintain aspect ratio */
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
 }
@@ -316,6 +323,18 @@ body {
 /* Form Styles */
 .register-form {
   margin-bottom: var(--spacing-lg);
+}
+
+/* Form Row for horizontal layout */
+.form-row {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-row .input-group {
+  flex: 1;
+  margin-bottom: 0;
 }
 
 .input-group {
@@ -425,8 +444,8 @@ body {
 .password-requirements {
   background: var(--light-gray);
   border-radius: var(--radius-sm);
-  padding: var(--spacing-md);
-  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
   opacity: 0;
   max-height: 0;
   overflow: hidden;
@@ -477,7 +496,7 @@ body {
 
 /* Form Options */
 .form-options {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 /* Custom Checkbox */
@@ -544,7 +563,7 @@ body {
   width: 100%;
   height: 48px;
   background: var(--primary);
-  color: var(--white);
+  color: #ffffff !important; /* Force white text */
   border: none;
   border-radius: var(--radius-lg);
   font-size: var(--font-size-base);
@@ -560,18 +579,21 @@ body {
 
 .register-btn:hover {
   background: var(--primary-dark);
+  color: #ffffff !important; /* Ensure white text on hover */
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
 }
 
 .register-btn:active {
   transform: translateY(0);
+  color: #ffffff !important; /* Ensure white text on active */
 }
 
 .register-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
+  color: #ffffff !important; /* Ensure white text when disabled */
 }
 
 /* Button Loading State */
@@ -604,10 +626,19 @@ body {
   display: block;
 }
 
+/* Ensure button text is white */
+.register-btn .btn-text {
+  color: #ffffff !important;
+}
+
+.register-btn:hover .btn-text {
+  color: #ffffff !important;
+}
+
 /* Divider */
 .divider {
   text-align: center;
-  margin: var(--spacing-xl) 0;
+  margin: var(--spacing-lg) 0;
   position: relative;
 }
 
@@ -634,7 +665,7 @@ body {
 .social-buttons {
   display: flex;
   gap: var(--spacing-md);
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 .social-btn {
@@ -696,8 +727,9 @@ body {
   }
   
   .register-container {
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
     border-radius: var(--radius-sm);
+    max-width: 400px; /* Smaller on mobile */
   }
   
   .welcome-title {
@@ -714,6 +746,16 @@ body {
   
   .social-btn {
     width: 100%;
+  }
+  
+  /* Stack form rows vertically on mobile */
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .form-row .input-group {
+    margin-bottom: var(--spacing-lg);
   }
 }
 
@@ -739,7 +781,44 @@ body {
   }
   
   .register-header {
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .logo {
+    max-width: 80px;
+    max-height: 48px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .welcome-title {
+    font-size: var(--font-size-lg);
+  }
+  
+  .password-requirements {
+    margin-bottom: var(--spacing-sm);
+  }
+}
+
+/* Short screens (for better visibility at 100% zoom) */
+@media (max-height: 750px) {
+  .register-page {
+    align-items: flex-start;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  .register-container {
+    margin: var(--spacing-sm) 0;
+    padding: var(--spacing-lg);
+  }
+  
+  .register-header {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .logo-container {
+    margin-bottom: var(--spacing-sm);
   }
   
   .logo {
@@ -748,10 +827,32 @@ body {
   }
   
   .welcome-title {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .form-row {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .input-group {
+    margin-bottom: var(--spacing-md);
   }
   
   .password-requirements {
+    padding: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .form-options {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .divider {
+    margin: var(--spacing-md) 0;
+  }
+  
+  .social-buttons {
     margin-bottom: var(--spacing-md);
   }
 }

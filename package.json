@@ -1,0 +1,35 @@
+{
+  "name": "brelinx-connect",
+  "version": "1.0.0",
+  "description": "Brelinx Connect - Client Portal Mobile App",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'No build step needed for vanilla JS'",
+    "serve": "npx serve .",
+    "cap:add:android": "npx cap add android",
+    "cap:sync": "npx cap sync",
+    "cap:open:android": "npx cap open android",
+    "cap:run:android": "npx cap run android",
+    "cap:build:android": "npx cap build android"
+  },
+  "keywords": [
+    "ionic",
+    "capacitor",
+    "mobile",
+    "client-portal"
+  ],
+  "author": "Brelinx",
+  "license": "MIT",
+  "devDependencies": {
+    "@capacitor/cli": "^5.6.0"
+  },
+  "dependencies": {
+    "@capacitor/core": "^5.6.0",
+    "@capacitor/android": "^5.6.0",
+    "@capacitor/app": "^5.0.6",
+    "@capacitor/haptics": "^5.0.6",
+    "@capacitor/keyboard": "^5.0.6",
+    "@capacitor/status-bar": "^5.0.6",
+    "@capacitor/splash-screen": "^5.0.6"
+  }
+}

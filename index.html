@@ -27,6 +27,30 @@
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="src/manifest.json">
+    
+    <!-- Mobile App Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Brelinx Connect">
+    
+    <!-- Capacitor Plugins -->
+    <script type="module">
+        import { CapacitorApp } from '@capacitor/app';
+        import { StatusBar, Style } from '@capacitor/status-bar';
+        import { SplashScreen } from '@capacitor/splash-screen';
+        
+        // Configure status bar
+        StatusBar.setStyle({ style: Style.Dark });
+        StatusBar.setBackgroundColor({ color: '#2d8a5f' });
+        
+        // Hide splash screen after app loads
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                SplashScreen.hide();
+            }, 2000);
+        });
+    </script>
 </head>
 <body>
     <!-- App Container -->

@@ -1,0 +1,7 @@
+{
+  "name": "brelinx-connect",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vanilla"
+}

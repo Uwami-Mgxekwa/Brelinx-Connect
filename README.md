@@ -29,6 +29,18 @@ This project is configured to work with GitHub Pages out of the box.
 
 Your site will be available at: `https://yourusername.github.io/repository-name/`
 
+### Troubleshooting
+
+**If you get "GitHub Actions" errors:**
+- Use the "Deploy from a branch" method instead (simpler and more reliable)
+- Make sure your repository is public or you have GitHub Pro for private repos
+- Wait 2-3 minutes after enabling Pages for the first deployment
+
+**If logos don't show:**
+- Check that `src/assets/images/logo.png` exists
+- Verify all paths in auth pages use `src/assets/images/logo.png`
+- Clear browser cache and refresh
+
 ### Manual Setup
 
 If you prefer manual setup:

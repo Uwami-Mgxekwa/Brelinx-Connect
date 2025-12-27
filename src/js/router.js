@@ -21,28 +21,28 @@ class Router {
   initializeRoutes() {
     // Authentication Routes
     this.addRoute('/', {
-      template: 'pages/auth/login.html',
+      template: 'src/pages/auth/login.html',
       title: 'Login - Brelinx Connect',
       requiresAuth: false,
       redirectIfAuth: '/dashboard'
     });
 
     this.addRoute('/auth/login', {
-      template: 'pages/auth/login.html',
+      template: 'src/pages/auth/login.html',
       title: 'Login - Brelinx Connect',
       requiresAuth: false,
       redirectIfAuth: '/dashboard'
     });
 
     this.addRoute('/auth/register', {
-      template: 'pages/auth/register.html',
+      template: 'src/pages/auth/register.html',
       title: 'Register - Brelinx Connect',
       requiresAuth: false,
       redirectIfAuth: '/dashboard'
     });
 
     this.addRoute('/auth/reset-password', {
-      template: 'pages/auth/reset-password.html',
+      template: 'src/pages/auth/reset-password.html',
       title: 'Reset Password - Brelinx Connect',
       requiresAuth: false,
       redirectIfAuth: '/dashboard'
@@ -50,7 +50,7 @@ class Router {
 
     // Main Application Routes
     this.addRoute('/dashboard', {
-      template: 'pages/dashboard/dashboard.html',
+      template: 'src/pages/dashboard/dashboard.html',
       title: 'Dashboard - Brelinx Connect',
       requiresAuth: true,
       showNavigation: true
@@ -58,21 +58,21 @@ class Router {
 
     // Project Routes
     this.addRoute('/projects', {
-      template: 'pages/projects/projects-list.html',
+      template: 'src/pages/projects/projects-list.html',
       title: 'Projects - Brelinx Connect',
       requiresAuth: true,
       showNavigation: true
     });
 
     this.addRoute('/projects/:id', {
-      template: 'pages/projects/project-detail.html',
+      template: 'src/pages/projects/project-detail.html',
       title: 'Project Details - Brelinx Connect',
       requiresAuth: true,
       showNavigation: true
     });
 
     this.addRoute('/projects/:id/timeline', {
-      template: 'pages/projects/project-timeline.html',
+      template: 'src/pages/projects/project-timeline.html',
       title: 'Project Timeline - Brelinx Connect',
       requiresAuth: true,
       showNavigation: true
@@ -80,14 +80,14 @@ class Router {
 
     // Chat Routes
     this.addRoute('/chat', {
-      template: 'pages/chat/conversations.html',
+      template: 'src/pages/chat/conversations.html',
       title: 'Messages - Brelinx Connect',
       requiresAuth: true,
       showNavigation: true
     });
 
     this.addRoute('/chat/:id', {
-      template: 'pages/chat/chat-room.html',
+      template: 'src/pages/chat/chat-room.html',
       title: 'Chat - Brelinx Connect',
       requiresAuth: true,
       showNavigation: false
@@ -95,14 +95,14 @@ class Router {
 
     // File Routes
     this.addRoute('/files', {
-      template: 'pages/files/files-list.html',
+      template: 'src/pages/files/files-list.html',
       title: 'Files - Brelinx Connect',
       requiresAuth: true,
       showNavigation: true
     });
 
     this.addRoute('/files/:id', {
-      template: 'pages/files/file-viewer.html',
+      template: 'src/pages/files/file-viewer.html',
       title: 'File Viewer - Brelinx Connect',
       requiresAuth: true,
       showNavigation: false
@@ -110,14 +110,14 @@ class Router {
 
     // Meeting Routes
     this.addRoute('/meetings', {
-      template: 'pages/meetings/calendar.html',
+      template: 'src/pages/meetings/calendar.html',
       title: 'Meetings - Brelinx Connect',
       requiresAuth: true,
       showNavigation: true
     });
 
     this.addRoute('/meetings/:id', {
-      template: 'pages/meetings/meeting-details.html',
+      template: 'src/pages/meetings/meeting-details.html',
       title: 'Meeting Details - Brelinx Connect',
       requiresAuth: true,
       showNavigation: false
@@ -125,21 +125,21 @@ class Router {
 
     // Payment Routes
     this.addRoute('/payments', {
-      template: 'pages/payments/invoices.html',
+      template: 'src/pages/payments/invoices.html',
       title: 'Invoices - Brelinx Connect',
       requiresAuth: true,
       showNavigation: true
     });
 
     this.addRoute('/payments/history', {
-      template: 'pages/payments/payment-history.html',
+      template: 'src/pages/payments/payment-history.html',
       title: 'Payment History - Brelinx Connect',
       requiresAuth: true,
       showNavigation: true
     });
 
     this.addRoute('/payments/make-payment/:id', {
-      template: 'pages/payments/make-payment.html',
+      template: 'src/pages/payments/make-payment.html',
       title: 'Make Payment - Brelinx Connect',
       requiresAuth: true,
       showNavigation: false
@@ -147,7 +147,7 @@ class Router {
 
     // Feedback Routes
     this.addRoute('/feedback', {
-      template: 'pages/feedback/submit-feedback.html',
+      template: 'src/pages/feedback/submit-feedback.html',
       title: 'Feedback - Brelinx Connect',
       requiresAuth: true,
       showNavigation: true
@@ -155,14 +155,14 @@ class Router {
 
     // Profile Routes
     this.addRoute('/profile', {
-      template: 'pages/profile/profile.html',
+      template: 'src/pages/profile/profile.html',
       title: 'Profile - Brelinx Connect',
       requiresAuth: true,
       showNavigation: true
     });
 
     this.addRoute('/profile/settings', {
-      template: 'pages/profile/settings.html',
+      template: 'src/pages/profile/settings.html',
       title: 'Settings - Brelinx Connect',
       requiresAuth: true,
       showNavigation: true
@@ -170,7 +170,7 @@ class Router {
 
     // 404 Route
     this.addRoute('/404', {
-      template: 'pages/404.html',
+      template: 'src/pages/404.html',
       title: 'Page Not Found - Brelinx Connect',
       requiresAuth: false,
       showNavigation: false
@@ -223,7 +223,7 @@ class Router {
    */
   handleInitialRoute() {
     // Check if we're accessing a page directly (not through index.html)
-    if (window.location.pathname.includes('/pages/')) {
+    if (window.location.pathname.includes('/src/pages/')) {
       // Redirect to main app with the appropriate hash
       const currentPath = window.location.pathname;
       let redirectHash = '/';
@@ -236,8 +236,8 @@ class Router {
         redirectHash = '/auth/reset-password';
       }
       
-      // Get the base URL (remove everything after /src/)
-      const baseUrl = window.location.origin + window.location.pathname.split('/src/')[0] + '/src/';
+      // Get the base URL (remove everything after the domain)
+      const baseUrl = window.location.origin + '/';
       window.location.href = baseUrl + 'index.html#' + redirectHash;
       return;
     }
@@ -465,7 +465,7 @@ class Router {
     
     try {
       // Try to load page-specific JS
-      const scriptPath = `js/pages/${pageName}.js`;
+      const scriptPath = `src/js/pages/${pageName}.js`;
       await this.loadScript(scriptPath);
     } catch (error) {
       // Page-specific JS is optional

@@ -1,231 +1,567 @@
 /**
- * Client-Side Router
- * Handles navigation and page routing
+ * Brelinx Connect - Router System
+ * Client-side routing for SPA navigation
  */
+
 class Router {
   constructor() {
-    this.routes = {};
+    this.routes = new Map();
     this.currentRoute = null;
-    this.outlet = document.getElementById('router-outlet');
-    this.init();
-  }
-
-  /**
-   * Initialize router
-   */
-  init() {
-    // Listen for hash changes
-    window.addEventListener('hashchange', () => this.handleRoute());
+    this.isNavigating = false;
+    this.authService = null; // Will be injected
     
-    // Listen for popstate (browser back/forward)
-    window.addEventListener('popstate', () => this.handleRoute());
-
-    // Handle initial route
-    this.handleRoute();
+    this.initializeRoutes();
+    this.bindEvents();
+    this.handleInitialRoute();
   }
 
   /**
-   * Register a route
-   * @param {string} path 
-   * @param {string} pagePath 
-   * @param {object} options 
+   * Define all application routes
    */
-  route(path, pagePath, options = {}) {
-    this.routes[path] = {
-      pagePath,
-      requiresAuth: options.requiresAuth !== false, // Default to true
-      ...options
-    };
+  initializeRoutes() {
+    // Authentication Routes
+    this.addRoute('/', {
+      template: 'pages/auth/login.html',
+      title: 'Login - Brelinx Connect',
+      requiresAuth: false,
+      redirectIfAuth: '/dashboard'
+    });
+
+    this.addRoute('/auth/login', {
+      template: 'pages/auth/login.html',
+      title: 'Login - Brelinx Connect',
+      requiresAuth: false,
+      redirectIfAuth: '/dashboard'
+    });
+
+    this.addRoute('/auth/register', {
+      template: 'pages/auth/register.html',
+      title: 'Register - Brelinx Connect',
+      requiresAuth: false,
+      redirectIfAuth: '/dashboard'
+    });
+
+    this.addRoute('/auth/reset-password', {
+      template: 'pages/auth/reset-password.html',
+      title: 'Reset Password - Brelinx Connect',
+      requiresAuth: false,
+      redirectIfAuth: '/dashboard'
+    });
+
+    // Main Application Routes
+    this.addRoute('/dashboard', {
+      template: 'pages/dashboard/dashboard.html',
+      title: 'Dashboard - Brelinx Connect',
+      requiresAuth: true,
+      showNavigation: true
+    });
+
+    // Project Routes
+    this.addRoute('/projects', {
+      template: 'pages/projects/projects-list.html',
+      title: 'Projects - Brelinx Connect',
+      requiresAuth: true,
+      showNavigation: true
+    });
+
+    this.addRoute('/projects/:id', {
+      template: 'pages/projects/project-detail.html',
+      title: 'Project Details - Brelinx Connect',
+      requiresAuth: true,
+      showNavigation: true
+    });
+
+    this.addRoute('/projects/:id/timeline', {
+      template: 'pages/projects/project-timeline.html',
+      title: 'Project Timeline - Brelinx Connect',
+      requiresAuth: true,
+      showNavigation: true
+    });
+
+    // Chat Routes
+    this.addRoute('/chat', {
+      template: 'pages/chat/conversations.html',
+      title: 'Messages - Brelinx Connect',
+      requiresAuth: true,
+      showNavigation: true
+    });
+
+    this.addRoute('/chat/:id', {
+      template: 'pages/chat/chat-room.html',
+      title: 'Chat - Brelinx Connect',
+      requiresAuth: true,
+      showNavigation: false
+    });
+
+    // File Routes
+    this.addRoute('/files', {
+      template: 'pages/files/files-list.html',
+      title: 'Files - Brelinx Connect',
+      requiresAuth: true,
+      showNavigation: true
+    });
+
+    this.addRoute('/files/:id', {
+      template: 'pages/files/file-viewer.html',
+      title: 'File Viewer - Brelinx Connect',
+      requiresAuth: true,
+      showNavigation: false
+    });
+
+    // Meeting Routes
+    this.addRoute('/meetings', {
+      template: 'pages/meetings/calendar.html',
+      title: 'Meetings - Brelinx Connect',
+      requiresAuth: true,
+      showNavigation: true
+    });
+
+    this.addRoute('/meetings/:id', {
+      template: 'pages/meetings/meeting-details.html',
+      title: 'Meeting Details - Brelinx Connect',
+      requiresAuth: true,
+      showNavigation: false
+    });
+
+    // Payment Routes
+    this.addRoute('/payments', {
+      template: 'pages/payments/invoices.html',
+      title: 'Invoices - Brelinx Connect',
+      requiresAuth: true,
+      showNavigation: true
+    });
+
+    this.addRoute('/payments/history', {
+      template: 'pages/payments/payment-history.html',
+      title: 'Payment History - Brelinx Connect',
+      requiresAuth: true,
+      showNavigation: true
+    });
+
+    this.addRoute('/payments/make-payment/:id', {
+      template: 'pages/payments/make-payment.html',
+      title: 'Make Payment - Brelinx Connect',
+      requiresAuth: true,
+      showNavigation: false
+    });
+
+    // Feedback Routes
+    this.addRoute('/feedback', {
+      template: 'pages/feedback/submit-feedback.html',
+      title: 'Feedback - Brelinx Connect',
+      requiresAuth: true,
+      showNavigation: true
+    });
+
+    // Profile Routes
+    this.addRoute('/profile', {
+      template: 'pages/profile/profile.html',
+      title: 'Profile - Brelinx Connect',
+      requiresAuth: true,
+      showNavigation: true
+    });
+
+    this.addRoute('/profile/settings', {
+      template: 'pages/profile/settings.html',
+      title: 'Settings - Brelinx Connect',
+      requiresAuth: true,
+      showNavigation: true
+    });
+
+    // 404 Route
+    this.addRoute('/404', {
+      template: 'pages/404.html',
+      title: 'Page Not Found - Brelinx Connect',
+      requiresAuth: false,
+      showNavigation: false
+    });
   }
 
   /**
-   * Handle route change
+   * Add a route to the router
    */
-  async handleRoute() {
-    const hash = window.location.hash.slice(1) || '/';
-    const path = hash.split('?')[0]; // Remove query params
-    const route = this.routes[path];
-
-    // Check if route exists
-    if (!route) {
-      this.navigate('/dashboard', { replace: true });
-      return;
-    }
-
-    // Check authentication
-    if (route.requiresAuth && !authService.isAuthenticated()) {
-      this.navigate('/auth/login', { replace: true });
-      return;
-    }
-
-    // Redirect authenticated users away from auth pages
-    if (path.startsWith('/auth') && authService.isAuthenticated()) {
-      this.navigate('/dashboard', { replace: true });
-      return;
-    }
-
-    // Load page
-    await this.loadPage(route.pagePath, path);
-    this.currentRoute = path;
-
-    // Update active nav items
-    this.updateNavigation(path);
+  addRoute(path, config) {
+    this.routes.set(path, {
+      path,
+      template: config.template,
+      title: config.title || 'Brelinx Connect',
+      requiresAuth: config.requiresAuth !== false,
+      redirectIfAuth: config.redirectIfAuth || null,
+      showNavigation: config.showNavigation !== false,
+      params: {},
+      query: {}
+    });
   }
 
   /**
-   * Load page content
-   * @param {string} pagePath 
-   * @param {string} routePath 
+   * Bind event listeners
    */
-  async loadPage(pagePath, routePath) {
-    try {
-      // Show loading
-      this.showLoading();
+  bindEvents() {
+    // Handle hash changes
+    window.addEventListener('hashchange', () => {
+      this.handleRoute();
+    });
 
-      // Fetch page HTML
-      const response = await fetch(pagePath);
-      if (!response.ok) {
-        throw new Error(`Failed to load page: ${response.status}`);
-      }
+    // Handle back/forward buttons
+    window.addEventListener('popstate', () => {
+      this.handleRoute();
+    });
 
-      const html = await response.text();
-      
-      // Create temporary container
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = html;
-
-      // Clear outlet
-      this.outlet.innerHTML = '';
-
-      // Append page content
-      const pageContent = tempDiv.querySelector('div') || tempDiv;
-      this.outlet.appendChild(pageContent);
-
-      // Load page-specific JavaScript if exists
-      await this.loadPageScript(routePath);
-
-      // Hide loading
-      this.hideLoading();
-
-      // Scroll to top
-      Helpers.scrollToTop();
-    } catch (error) {
-      console.error('Error loading page:', error);
-      this.showError('Failed to load page. Please try again.');
-    }
-  }
-
-  /**
-   * Load page-specific script
-   * @param {string} routePath 
-   */
-  async loadPageScript(routePath) {
-    // Map route to script file
-    const scriptMap = {
-      '/auth/login': 'pages/auth.js',
-      '/auth/register': 'pages/auth.js',
-      '/auth/reset-password': 'pages/auth.js',
-      '/dashboard': 'pages/dashboard.js',
-      '/projects': 'pages/projects.js',
-      '/chat': 'pages/chat.js',
-      '/profile': 'pages/profile.js'
-    };
-
-    const scriptPath = scriptMap[routePath];
-    if (scriptPath) {
-      try {
-        // Check if script already loaded
-        const scriptId = `script-${routePath.replace(/\//g, '-')}`;
-        if (document.getElementById(scriptId)) {
-          return;
-        }
-
-        // Load script dynamically
-        const script = document.createElement('script');
-        script.id = scriptId;
-        script.src = `js/${scriptPath}`;
-        script.type = 'module';
-        document.body.appendChild(script);
-      } catch (error) {
-        console.error('Error loading page script:', error);
-      }
-    }
-  }
-
-  /**
-   * Navigate to route
-   * @param {string} path 
-   * @param {object} options 
-   */
-  navigate(path, options = {}) {
-    if (options.replace) {
-      window.location.replace(`#${path}`);
-    } else {
-      window.location.hash = path;
-    }
-  }
-
-  /**
-   * Update navigation active states
-   * @param {string} currentPath 
-   */
-  updateNavigation(currentPath) {
-    // Update bottom nav
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-      const href = item.getAttribute('href');
-      if (href && currentPath.startsWith(href.replace('#', ''))) {
-        item.classList.add('active');
-      } else {
-        item.classList.remove('active');
+    // Handle link clicks
+    document.addEventListener('click', (event) => {
+      const link = event.target.closest('a[href^="#"]');
+      if (link) {
+        event.preventDefault();
+        const path = link.getAttribute('href').substring(1);
+        this.navigate(path);
       }
     });
   }
 
   /**
-   * Show loading state
+   * Handle initial route on page load
    */
-  showLoading() {
-    const loadingScreen = document.getElementById('loading-screen');
-    if (loadingScreen) {
-      loadingScreen.classList.remove('hidden');
+  handleInitialRoute() {
+    const hash = window.location.hash.substring(1) || '/';
+    this.navigate(hash, false);
+  }
+
+  /**
+   * Navigate to a specific route
+   */
+  async navigate(path, addToHistory = true) {
+    if (this.isNavigating) return;
+    
+    this.isNavigating = true;
+
+    try {
+      const route = this.matchRoute(path);
+      
+      if (!route) {
+        this.navigate('/404');
+        return;
+      }
+
+      // Check authentication
+      if (!this.checkAuth(route)) {
+        this.isNavigating = false;
+        return;
+      }
+
+      // Update URL
+      if (addToHistory) {
+        window.location.hash = '#' + path;
+      }
+
+      // Load and render the route
+      await this.loadRoute(route);
+      
+      this.currentRoute = route;
+      
+    } catch (error) {
+      console.error('Navigation error:', error);
+      this.showError('Failed to load page. Please try again.');
+    } finally {
+      this.isNavigating = false;
     }
   }
 
   /**
-   * Hide loading state
+   * Match a path to a route
    */
-  hideLoading() {
-    const loadingScreen = document.getElementById('loading-screen');
-    if (loadingScreen) {
-      loadingScreen.classList.add('hidden');
+  matchRoute(path) {
+    // Remove query string
+    const [pathname, queryString] = path.split('?');
+    
+    // Try exact match first
+    if (this.routes.has(pathname)) {
+      const route = { ...this.routes.get(pathname) };
+      route.query = this.parseQuery(queryString);
+      return route;
     }
+
+    // Try pattern matching for dynamic routes
+    for (const [routePath, routeConfig] of this.routes) {
+      const params = this.matchPattern(routePath, pathname);
+      if (params) {
+        const route = { ...routeConfig };
+        route.params = params;
+        route.query = this.parseQuery(queryString);
+        return route;
+      }
+    }
+
+    return null;
+  }
+
+  /**
+   * Match dynamic route patterns
+   */
+  matchPattern(pattern, path) {
+    const patternParts = pattern.split('/');
+    const pathParts = path.split('/');
+
+    if (patternParts.length !== pathParts.length) {
+      return null;
+    }
+
+    const params = {};
+
+    for (let i = 0; i < patternParts.length; i++) {
+      const patternPart = patternParts[i];
+      const pathPart = pathParts[i];
+
+      if (patternPart.startsWith(':')) {
+        // Dynamic parameter
+        const paramName = patternPart.substring(1);
+        params[paramName] = decodeURIComponent(pathPart);
+      } else if (patternPart !== pathPart) {
+        // Static part doesn't match
+        return null;
+      }
+    }
+
+    return params;
+  }
+
+  /**
+   * Parse query string
+   */
+  parseQuery(queryString) {
+    const query = {};
+    if (queryString) {
+      const pairs = queryString.split('&');
+      for (const pair of pairs) {
+        const [key, value] = pair.split('=');
+        query[decodeURIComponent(key)] = decodeURIComponent(value || '');
+      }
+    }
+    return query;
+  }
+
+  /**
+   * Check authentication for route
+   */
+  checkAuth(route) {
+    const isAuthenticated = this.isUserAuthenticated();
+
+    if (route.requiresAuth && !isAuthenticated) {
+      // Redirect to login
+      this.navigate('/auth/login');
+      return false;
+    }
+
+    if (route.redirectIfAuth && isAuthenticated) {
+      // Redirect authenticated users away from auth pages
+      this.navigate(route.redirectIfAuth);
+      return false;
+    }
+
+    return true;
+  }
+
+  /**
+   * Check if user is authenticated
+   */
+  isUserAuthenticated() {
+    const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
+    return !!token;
+  }
+
+  /**
+   * Load and render a route
+   */
+  async loadRoute(route) {
+    try {
+      // Show loading state
+      this.showLoading(true);
+
+      // Load the template
+      const html = await this.loadTemplate(route.template);
+      
+      // Update page title
+      document.title = route.title;
+
+      // Render the content
+      await this.renderContent(html, route);
+
+      // Show/hide navigation
+      this.toggleNavigation(route.showNavigation);
+
+      // Hide loading state
+      this.showLoading(false);
+
+    } catch (error) {
+      console.error('Route loading error:', error);
+      this.showError('Failed to load page content.');
+      this.showLoading(false);
+    }
+  }
+
+  /**
+   * Load template from file
+   */
+  async loadTemplate(templatePath) {
+    try {
+      const response = await fetch(templatePath);
+      if (!response.ok) {
+        throw new Error(`Failed to load template: ${response.status}`);
+      }
+      return await response.text();
+    } catch (error) {
+      console.error('Template loading error:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Render content to the router outlet
+   */
+  async renderContent(html, route) {
+    const outlet = document.getElementById('router-outlet');
+    
+    // Add page transition class
+    outlet.classList.add('page-enter');
+    
+    // Set the content
+    outlet.innerHTML = html;
+    
+    // Trigger page-specific JavaScript
+    await this.initializePage(route);
+    
+    // Remove transition class
+    setTimeout(() => {
+      outlet.classList.remove('page-enter');
+    }, 50);
+  }
+
+  /**
+   * Initialize page-specific functionality
+   */
+  async initializePage(route) {
+    // Load page-specific JavaScript if it exists
+    const pageName = this.getPageName(route.template);
+    
+    try {
+      // Try to load page-specific JS
+      const scriptPath = `js/pages/${pageName}.js`;
+      await this.loadScript(scriptPath);
+    } catch (error) {
+      // Page-specific JS is optional
+      console.log(`No specific JS found for page: ${pageName}`);
+    }
+
+    // Dispatch route change event
+    window.dispatchEvent(new CustomEvent('routeChanged', {
+      detail: { route, params: route.params, query: route.query }
+    }));
+  }
+
+  /**
+   * Get page name from template path
+   */
+  getPageName(templatePath) {
+    const parts = templatePath.split('/');
+    const filename = parts[parts.length - 1];
+    return filename.replace('.html', '');
+  }
+
+  /**
+   * Load JavaScript file dynamically
+   */
+  loadScript(src) {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = src;
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+
+  /**
+   * Show/hide loading screen
+   */
+  showLoading(show) {
+    const loadingScreen = document.getElementById('loading-screen');
+    const mainContent = document.getElementById('main-content');
+    
+    if (show) {
+      loadingScreen.style.display = 'flex';
+      mainContent.style.display = 'none';
+    } else {
+      loadingScreen.style.display = 'none';
+      mainContent.style.display = 'block';
+    }
+  }
+
+  /**
+   * Toggle navigation visibility
+   */
+  toggleNavigation(show) {
+    const navigation = document.getElementById('app-navigation');
+    if (navigation) {
+      navigation.style.display = show ? 'block' : 'none';
+    }
+  }
+
+  /**
+   * Handle route changes
+   */
+  handleRoute() {
+    const hash = window.location.hash.substring(1) || '/';
+    this.navigate(hash, false);
   }
 
   /**
    * Show error message
-   * @param {string} message 
    */
   showError(message) {
-    // This will use the toast component
-    if (window.toast) {
-      window.toast.show(message, 'error');
-    } else {
-      alert(message);
-    }
+    // This will be replaced with proper toast notification
+    console.error('Router Error:', message);
+    alert(message);
+  }
+
+  /**
+   * Get current route information
+   */
+  getCurrentRoute() {
+    return this.currentRoute;
+  }
+
+  /**
+   * Get route parameters
+   */
+  getParams() {
+    return this.currentRoute ? this.currentRoute.params : {};
+  }
+
+  /**
+   * Get query parameters
+   */
+  getQuery() {
+    return this.currentRoute ? this.currentRoute.query : {};
+  }
+
+  /**
+   * Go back in history
+   */
+  goBack() {
+    window.history.back();
+  }
+
+  /**
+   * Replace current route
+   */
+  replace(path) {
+    window.location.replace('#' + path);
   }
 }
 
-// Initialize router and register routes
-const router = new Router();
+// Create global router instance
+window.router = new Router();
 
-// Register routes
-router.route('/', 'pages/dashboard/dashboard.html', { requiresAuth: true });
-router.route('/dashboard', 'pages/dashboard/dashboard.html', { requiresAuth: true });
-router.route('/auth/login', 'pages/auth/login.html', { requiresAuth: false });
-router.route('/auth/register', 'pages/auth/register.html', { requiresAuth: false });
-router.route('/auth/reset-password', 'pages/auth/reset-password.html', { requiresAuth: false });
-
-// Make router globally available
-window.router = router;
-
+// Export for module systems
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = Router;
+}

@@ -36,18 +36,21 @@
     
     <!-- Capacitor Plugins -->
     <script type="module">
-        import { CapacitorApp } from '@capacitor/app';
-        import { StatusBar, Style } from '@capacitor/status-bar';
-        import { SplashScreen } from '@capacitor/splash-screen';
+        // Capacitor functionality will be available when running as mobile app
+        // For web version, we'll use fallbacks
         
-        // Configure status bar
-        StatusBar.setStyle({ style: Style.Dark });
-        StatusBar.setBackgroundColor({ color: '#2d8a5f' });
+        // Configure status bar (mobile only)
+        if (window.StatusBar) {
+          window.StatusBar.setStyle({ style: 'Dark' });
+          window.StatusBar.setBackgroundColor({ color: '#2d8a5f' });
+        }
         
-        // Hide splash screen after app loads
+        // Hide splash screen after app loads (mobile only)
         window.addEventListener('load', () => {
             setTimeout(() => {
-                SplashScreen.hide();
+                if (window.SplashScreen) {
+                  window.SplashScreen.hide();
+                }
             }, 2000);
         });
     </script>

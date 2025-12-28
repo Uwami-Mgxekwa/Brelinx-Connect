@@ -120,14 +120,24 @@ class AuthService {
         return { success: true, user: this.currentUser };
       }
 
-      // If not demo credentials, try API service
-      const response = await window.apiService.login(credentials);
-      
-      if (response.data.success) {
-        this.setAuthData(response.data, credentials.remember);
-        return { success: true, user: this.currentUser };
+      // If not demo credentials, try API service (only if available)
+      if (window.apiService) {
+        try {
+          const response = await window.apiService.login(credentials);
+          
+          if (response.data.success) {
+            this.setAuthData(response.data, credentials.remember);
+            return { success: true, user: this.currentUser };
+          } else {
+            return { success: false, message: response.data.message || 'Invalid credentials. Try demo@brelinx.com / demo123' };
+          }
+        } catch (apiError) {
+          // API failed, return demo credential message
+          return { success: false, message: 'Invalid credentials. Try demo@brelinx.com / demo123' };
+        }
       } else {
-        return { success: false, message: response.data.message || 'Invalid credentials. Try demo@brelinx.com / demo123' };
+        // No API service available, return demo credential message
+        return { success: false, message: 'Invalid credentials. Try demo@brelinx.com / demo123' };
       }
     } catch (error) {
       console.error('Login error:', error);
